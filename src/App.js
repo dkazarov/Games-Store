@@ -1,30 +1,17 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import { Routes, Route } from 'react-router-dom';
 
-import Header from './components/Header/Header';
+import { Home } from './pages/Home.jsx';
+import { NotFound } from './pages/NotFound.jsx';
 
 import './App.scss';
 
 function App() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Header />
-      <Grid container spacing={2}>
-        <Grid item xs={8}>
-          {/* <Item>xs=8</Item> */}
-        </Grid>
-        <Grid item xs={4}>
-          {/* <Item>xs=4</Item> */}
-        </Grid>
-        <Grid item xs={4}>
-          {/* <Item>xs=4</Item> */}
-        </Grid>
-        <Grid item xs={8}>
-          {/* <Item>xs=8</Item> */}
-        </Grid>
-      </Grid>
-    </Box>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='*' element={<NotFound />} />
+    </Routes>
   );
 }
 
