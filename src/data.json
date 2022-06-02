@@ -1,6 +1,6 @@
 [
   {
-    "image": "/game-covers/forza_5.jpeg",
+    "image": "https://jl-games.com/wp-content/uploads/Forza-Horizon-5-Premium-Edition-600x600.jpg",
     "title": "Forza Horizon 5",
     "genres": ["Гонки", "Симулятор", "Открытый мир"],
     "price": 2343,
@@ -9,7 +9,7 @@
     "description": "Вас ждёт бесконечный калейдоскоп приключений Horizon! Совершайте увлекательные поездки по невероятно красивому и самобытному миру Мексики за рулём величайших автомобилей в истории. Начните своё приключение Horizon уже сегодня, добавив игру в свой список желаний!"
   },
   {
-    "image": "/game-covers/battlefield_2042.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/ru/thumb/7/79/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Battlefield_2042.jpg/274px-%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Battlefield_2042.jpg",
     "title": "Battlefield 2042",
     "genres": ["Экшен", "Шутер", "Война"],
     "video": "https://www.youtube.com/embed/ASzOzrB-a9E",
@@ -18,7 +18,7 @@
     "description": "Battlefield™ 2042 — это шутер от первого лица, в котором серия возвращается к легендарным масштабным сражениям. В будущем, где царит хаос, адаптируйтесь и процветайте на постоянно меняющихся полях боя благодаря своему отряду и арсеналу новейших технологий."
   },
   {
-    "image": "/game-covers/life_is_strange_true_colors.jpeg",
+    "image": "https://upload.wikimedia.org/wikipedia/ru/thumb/3/36/LifeIsStrange_TrueColors_%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0.jpg/274px-LifeIsStrange_TrueColors_%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0.jpg",
     "title": "Life is Strange True Colors",
     "genres": ["Глубокий сюжет", "Протагонистка"],
     "video": "https://www.youtube.com/embed/b6CkzwVAr0M",
@@ -27,7 +27,7 @@
     "description": "Алекс Чэнь от всех скрывает своё «проклятие» — сверхъестественную способность считывать сильные эмоции других и влиять на них. Но когда её брат погибает — якобы в результате несчастного случая, — Алекс использует её, чтобы узнать правду."
   },
   {
-    "image": "/game-covers/gta_v.jpeg",
+    "image": "https://upload.wikimedia.org/wikipedia/ru/c/c8/GTAV_Official_Cover_Art.jpg",
     "title": "Grand Theft Auto V",
     "genres": ["Открытый мир", "Экшен"],
     "video": "https://www.youtube.com/embed/QkkoHAzjnUs",
@@ -36,7 +36,7 @@
     "description": "Grand Theft Auto V для PC позволяет игрокам исследовать знаменитый мир Лос-Сантоса и округа Блэйн в разрешении до 4k и выше с частотой 60 кадров в секунду."
   },
   {
-    "image": "/game-covers/rainbow_siege.jpeg",
+    "image": "https://www.meme-arsenal.com/memes/fe926b755419b8940e1852938016fe49.jpg",
     "title": "Tom Clancy's Rainbow Six® Siege",
     "video": "https://www.youtube.com/embed/6wlvYh0h63k",
     "genres": ["Тактика", "Шутер"],
@@ -45,7 +45,7 @@
     "description": "Tom Clancy's Rainbow Six Осада – это продолжение нашумевшего шутера от первого лица, разработанного студией Ubisoft Montreal."
   },
   {
-    "image": "/game-covers/assassins_creed_valhalla.png",
+    "image": "https://i.pinimg.com/736x/f9/28/01/f92801095a1f19567ca9127812b203d2.jpg",
     "title": "Assassin’s Creed Valhalla",
     "genres": ["Паркур", "РПГ", "Открытый мир"],
     "video": "https://www.youtube.com/embed/ssrNcwxALS4",
