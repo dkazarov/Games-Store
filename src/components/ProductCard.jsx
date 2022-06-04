@@ -5,32 +5,25 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useSelector, useDispatch } from 'react-redux';
 
-export function ProductCard() {
-  const cardData = useSelector((state) => state.data.data);
-  const dispatch = useDispatch();
-
+export function ProductCard({ obj }) {
   return (
-    <Card sx={{ maxWidth: 345, m: 1 }} spacing={10}>
-      <CardMedia
-        component='img'
-        alt='green iguana'
-        height='140'
-        image='/static/images/cards/contemplative-reptile.jpg'
-      />
-      <CardContent>
+    <Card sx={{ maxWidth: 300, m: 2, height: '500px' }}>
+      <CardMedia component='img' alt='img' height='300' image={obj.image} />
+      <CardContent sx={{ maxHeight: '125px', overflow: 'hidden' }}>
         <Typography gutterBottom variant='h5' component='div'>
-          {cardData.title}
+          {obj.title}
         </Typography>
         <Typography variant='body2' color='text.secondary'>
-          Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-          across all continents except Antarctica
+          {obj.description}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size='small'>Share</Button>
-        <Button size='small'>Learn More</Button>
+      <CardActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Button size='small'>Ціна: {obj.price} грн</Button>
+
+        <Button size='small' variant='contained'>
+          Купити
+        </Button>
       </CardActions>
     </Card>
   );

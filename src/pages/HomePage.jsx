@@ -13,10 +13,10 @@ export const HomePage = () => {
   return (
     <>
       <Header />
-      <Container maxWidth='lg'>
+      <Container maxWidth='xl'>
         <Grid container direction='row' justifyContent='center' alignItems='center'>
           {data.map((items) => (
-            <ProductCard key={nanoid()} />
+            <ProductCard key={nanoid()} obj={items} />
           ))}
         </Grid>
       </Container>
