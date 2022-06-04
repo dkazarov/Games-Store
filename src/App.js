@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { Home } from './pages/Home.jsx';
+import { HomePage } from './pages/HomePage.jsx';
 import { NotFound } from './pages/NotFound.jsx';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getAllDataFromServer } from './redux/slices/dataSlice';
 
 import { getDatabase, ref, child, get } from 'firebase/database';
@@ -13,8 +13,6 @@ import './firebase.config';
 import './App.scss';
 
 function App() {
-  const data = useSelector((state) => state.data.data);
-  console.log(data);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,7 +32,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
+      <Route path='/' element={<HomePage />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   );

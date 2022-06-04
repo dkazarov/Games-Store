@@ -31,7 +31,7 @@ const darkTheme = createTheme({
 
 export default function EnableColorOnDarkAppBar() {
   return (
-    <Stack spacing={2} sx={{ flexGrow: 1 }}>
+    <Stack spacing={2} sx={{ flexGrow: 1, mb: 7 }}>
       <ThemeProvider theme={darkTheme}>
         <AppBar position='static' color='primary'>
           {appBarLabel('Games Store')}
