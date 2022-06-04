@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
+import { nanoid } from 'nanoid';
 
 export function ProductCard({ image, title, description, price, genres }) {
   return (
@@ -17,7 +18,7 @@ export function ProductCard({ image, title, description, price, genres }) {
           component='div'
           sx={{ fontSize: 14, color: 'crimson', textAlign: 'center' }}>
           {genres.map((items) => (
-            <Chip label={items} color='warning' size='small' sx={{ mr: 0.5 }} />
+            <Chip key={nanoid()} label={items} color='warning' size='small' sx={{ mr: 0.5 }} />
             // <Chip label={items} color="warning" size='small' />
           ))}
         </Typography>
