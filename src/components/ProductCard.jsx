@@ -6,13 +6,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
 
 export function ProductCard({ image, title, description, price, genres }) {
   return (
     <Card sx={{ maxWidth: 300, m: 2, height: '500px' }}>
-      <CardMedia component='img' alt='img' height='300' image={image} />
-      <CardContent sx={{ maxHeight: '120px', overflow: 'hidden' }}>
+      <CardMedia component='img' alt='img' height='250' image={image} />
+      <CardContent sx={{ maxHeight: '170px', overflow: 'hidden' }}>
         <Typography
           gutterBottom
           component='div'
