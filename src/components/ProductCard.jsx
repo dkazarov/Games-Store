@@ -7,8 +7,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import { nanoid } from 'nanoid';
+import { addToCart } from '../redux/slices/cartSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
-export function ProductCard({ image, title, description, price, genres }) {
+export function ProductCard({ image, title, description, price, genres, obj }) {
+  const dispatch = useDispatch();
+
   return (
     <Card sx={{ maxWidth: 300, m: 2, height: '500px' }}>
       <CardMedia component='img' alt='img' height='250' image={image} />
@@ -19,7 +23,6 @@ export function ProductCard({ image, title, description, price, genres }) {
           sx={{ fontSize: 14, color: 'crimson', textAlign: 'center' }}>
           {genres.map((items) => (
             <Chip key={nanoid()} label={items} color='warning' size='small' sx={{ mr: 0.5 }} />
-            // <Chip label={items} color="warning" size='small' />
           ))}
         </Typography>
         <Typography gutterBottom variant='h5' component='div'>
@@ -33,8 +36,7 @@ export function ProductCard({ image, title, description, price, genres }) {
         <Button size='small' variant='outlined'>
           Ціна: {price} грн
         </Button>
-
-        <Button size='small' variant='contained'>
+        <Button size='small' variant='contained' onClick={() => dispatch(addToCart(obj))}>
           Купити
         </Button>
       </CardActions>

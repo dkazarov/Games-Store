@@ -15,7 +15,7 @@ export const HomePage = () => {
       <Container maxWidth='xl'>
         <Grid container direction='row' justifyContent='center' alignItems='center'>
           {data.map((obj) => (
-            <ProductCard key={nanoid()} {...obj} />
+            <ProductCard key={nanoid()} {...obj} obj={obj} />
           ))}
         </Grid>
       </Container>
