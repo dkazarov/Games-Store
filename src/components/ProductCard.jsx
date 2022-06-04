@@ -10,7 +10,13 @@ export function ProductCard({ obj }) {
   return (
     <Card sx={{ maxWidth: 300, m: 2, height: '500px' }}>
       <CardMedia component='img' alt='img' height='300' image={obj.image} />
-      <CardContent sx={{ maxHeight: '125px', overflow: 'hidden' }}>
+      <CardContent sx={{ maxHeight: '120px', overflow: 'hidden' }}>
+        <Typography
+          gutterBottom
+          component='div'
+          sx={{ fontSize: 14, color: 'crimson', textAlign: 'center' }}>
+          [ {`${obj.genres} `} ]
+        </Typography>
         <Typography gutterBottom variant='h5' component='div'>
           {obj.title}
         </Typography>
@@ -19,7 +25,9 @@ export function ProductCard({ obj }) {
         </Typography>
       </CardContent>
       <CardActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Button size='small'>Ціна: {obj.price} грн</Button>
+        <Button size='small' variant='outlined'>
+          Ціна: {obj.price} грн
+        </Button>
 
         <Button size='small' variant='contained'>
           Купити
