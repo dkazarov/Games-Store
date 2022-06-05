@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Typography from '@mui/material/Typography';
 import Badge from '@mui/material/Badge';
@@ -7,7 +8,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
-import { CartPreview } from '../components/CartPreview';
+import { CartPreview } from './CartPreview/CartPreview';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -44,13 +45,17 @@ export const Header = () => {
         }}>
         <Container maxWidth='xl' sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography variant='h5' gutterBottom component='div' color='white'>
-            Games Store
+            <Link to='/' style={{ color: 'white', textDecoration: 'none' }}>
+              Games Store
+            </Link>
           </Typography>
-          <IconButton aria-label='cart' color='warning' onMouseOver={activePreviewMenu}>
-            <StyledBadge badgeContent={count} color='secondary'>
-              <ShoppingCartIcon />
-            </StyledBadge>
-          </IconButton>
+          <Link to='/cart'>
+            <IconButton aria-label='cart' color='warning' onMouseOver={activePreviewMenu}>
+              <StyledBadge badgeContent={count} color='secondary'>
+                <ShoppingCartIcon />
+              </StyledBadge>
+            </IconButton>
+          </Link>
         </Container>
       </Box>
       <CartPreview previewCart={previewCart} />

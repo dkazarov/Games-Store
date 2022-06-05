@@ -15,7 +15,7 @@ export function ProductCard({ image, title, description, price, genres, obj }) {
   const dispatch = useDispatch();
   const db = getDatabase();
 
-  const addProductTocart = (obj) => {
+  const addProductToCart = (obj) => {
     dispatch(addToCart(obj));
     dispatch(increment());
 
@@ -27,14 +27,20 @@ export function ProductCard({ image, title, description, price, genres, obj }) {
 
   return (
     <Card sx={{ maxWidth: 300, m: 2, height: '500px' }}>
-      <CardMedia component='img' alt='img' height='250' image={image} />
+      <CardMedia component='img' alt='img' height='250' image={image} sx={{ cursor: 'pointer' }} />
       <CardContent sx={{ maxHeight: '170px', overflow: 'hidden' }}>
         <Typography
           gutterBottom
           component='div'
           sx={{ fontSize: 14, color: 'crimson', textAlign: 'center' }}>
           {genres.map((items) => (
-            <Chip key={nanoid()} label={items} color='warning' size='small' sx={{ mr: 0.5 }} />
+            <Chip
+              key={nanoid()}
+              label={items}
+              color='warning'
+              size='small'
+              sx={{ mr: 0.5, cursor: 'pointer' }}
+            />
           ))}
         </Typography>
         <Typography gutterBottom variant='h5' component='div'>
@@ -48,7 +54,7 @@ export function ProductCard({ image, title, description, price, genres, obj }) {
         <Button size='small' variant='outlined'>
           Ціна: {price} грн
         </Button>
-        <Button size='small' variant='contained' onClick={() => addProductTocart(obj)}>
+        <Button size='small' variant='contained' onClick={() => addProductToCart(obj)}>
           Купити
         </Button>
       </CardActions>
