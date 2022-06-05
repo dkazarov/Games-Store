@@ -10,8 +10,6 @@ import { getAllDataFromServer } from './redux/slices/dataSlice';
 import { getDatabase, ref, child, get } from 'firebase/database';
 import './firebase.config';
 
-import './App.scss';
-
 function App() {
   const dispatch = useDispatch();
 

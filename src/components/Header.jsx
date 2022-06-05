@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Typography from '@mui/material/Typography';
 import Badge from '@mui/material/Badge';
@@ -7,6 +7,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
+import { CartPreview } from '../components/CartPreview';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -21,10 +22,19 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export const Header = () => {
   const count = useSelector((state) => state.cart.value);
+  const [previewCart, setPreviewCart] = useState(false);
+
+  const activePreviewMenu = () => {
+    setTimeout(() => {
+      setPreviewCart(!previewCart);
+    }, 350);
+  };
+
   return (
     <Box>
       <Box
         style={{
+          position: 'relative',
           display: 'flex',
           alignItems: 'center',
           height: '75px',
@@ -36,13 +46,14 @@ export const Header = () => {
           <Typography variant='h5' gutterBottom component='div' color='white'>
             Games Store
           </Typography>
-          <IconButton aria-label='cart' color='warning'>
+          <IconButton aria-label='cart' color='warning' onMouseOver={activePreviewMenu}>
             <StyledBadge badgeContent={count} color='secondary'>
               <ShoppingCartIcon />
             </StyledBadge>
           </IconButton>
         </Container>
       </Box>
+      <CartPreview previewCart={previewCart} />
     </Box>
   );
 };

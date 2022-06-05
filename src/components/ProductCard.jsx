@@ -11,11 +11,11 @@ import { addToCart, increment } from '../redux/slices/cartSlice';
 import { useDispatch } from 'react-redux';
 import { getDatabase, ref, push, set } from 'firebase/database';
 
-export function ProductCard({ image, title, description, price, genres, video, obj }) {
+export function ProductCard({ image, title, description, price, genres, obj }) {
   const dispatch = useDispatch();
   const db = getDatabase();
 
-  const addProductTocart = (obj, image, title, genres, price, video, description) => {
+  const addProductTocart = (obj) => {
     dispatch(addToCart(obj));
     dispatch(increment());
 
