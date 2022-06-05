@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import { nanoid } from 'nanoid';
-import { addToCart, increment } from '../redux/slices/cartSlice';
+import { addToCart } from '../redux/slices/cartSlice';
 
 import { useDispatch } from 'react-redux';
 import { activeCartPreview } from '../redux/slices/cartSlice';
@@ -18,7 +18,6 @@ export function ProductCard({ image, title, description, price, genres, obj }) {
 
   const addProductToCart = (obj) => {
     dispatch(addToCart(obj));
-    dispatch(increment());
     dispatch(activeCartPreview(false));
 
     // Post to firebase
