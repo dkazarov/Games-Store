@@ -7,11 +7,23 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import { nanoid } from 'nanoid';
-import { addToCart } from '../redux/slices/cartSlice';
-import { useSelector, useDispatch } from 'react-redux';
+import { addToCart, increment } from '../redux/slices/cartSlice';
+import { useDispatch } from 'react-redux';
+import { getDatabase, ref, push, set } from 'firebase/database';
 
-export function ProductCard({ image, title, description, price, genres, obj }) {
+export function ProductCard({ image, title, description, price, genres, video, obj }) {
   const dispatch = useDispatch();
+  const db = getDatabase();
+
+  const addProductTocart = (obj, image, title, genres, price, video, description) => {
+    dispatch(addToCart(obj));
+    dispatch(increment());
+
+    // Post to firebase
+    const postListRef = ref(db, 'cart/');
+    const newPostRef = push(postListRef);
+    set(newPostRef, { ...obj });
+  };
 
   return (
     <Card sx={{ maxWidth: 300, m: 2, height: '500px' }}>
@@ -36,7 +48,7 @@ export function ProductCard({ image, title, description, price, genres, obj }) {
         <Button size='small' variant='outlined'>
           Ціна: {price} грн
         </Button>
-        <Button size='small' variant='contained' onClick={() => dispatch(addToCart(obj))}>
+        <Button size='small' variant='contained' onClick={() => addProductTocart(obj)}>
           Купити
         </Button>
       </CardActions>

@@ -1,61 +1,48 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Stack from '@mui/material/Stack';
-import Toolbar from '@mui/material/Toolbar';
+import React from 'react';
+
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
 
-function appBarLabel(label) {
-  return (
-    <Toolbar>
-      <IconButton edge='start' color='inherit' aria-label='menu' sx={{ mr: 2 }}>
-        <MenuIcon />
-      </IconButton>
-      <Typography variant='h6' noWrap component='div' sx={{ flexGrow: 1 }}>
-        {label}
-      </Typography>
-      <IconButton aria-label='cart' sx={{ mr: 1 }}>
-        <StyledBadge badgeContent={4} color='secondary'>
-          <ShoppingCartIcon />
-        </StyledBadge>
-      </IconButton>
-      {2355} грн
-    </Toolbar>
-  );
-}
+import { useSelector, useDispatch } from 'react-redux';
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-    primary: {
-      main: '#1976d2',
-    },
-  },
-});
-
-// Bage
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
-    right: -2,
+    right: -3,
     top: 13,
     border: `2px solid ${theme.palette.background.paper}`,
     padding: '0 4px',
   },
 }));
 
-export default function EnableColorOnDarkAppBar() {
+export const Header = () => {
+  const count = useSelector((state) => state.cart.value);
   return (
-    <Stack spacing={2} sx={{ flexGrow: 1, mb: 7 }}>
-      <ThemeProvider theme={darkTheme}>
-        <AppBar position='static' color='primary'>
-          {appBarLabel('Games Store')}
-        </AppBar>
-      </ThemeProvider>
-    </Stack>
+    <Box>
+      <Box
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          height: '75px',
+          width: '100%',
+          backgroundColor: 'rgba(0, 0, 0, .5)',
+          marginBottom: '40px',
+        }}>
+        <Container maxWidth='xl' sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography variant='h5' gutterBottom component='div' color='white'>
+            Games Store
+          </Typography>
+          <IconButton aria-label='cart' color='warning'>
+            <StyledBadge badgeContent={count} color='secondary'>
+              <ShoppingCartIcon />
+            </StyledBadge>
+          </IconButton>
+        </Container>
+      </Box>
+    </Box>
   );
-}
+};
