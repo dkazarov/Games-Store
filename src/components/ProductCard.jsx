@@ -19,6 +19,7 @@ export function ProductCard({ image, title, description, price, genres, obj }) {
   const addProductToCart = (obj) => {
     dispatch(addToCart(obj));
     dispatch(increment());
+    dispatch(activeCartPreview(false));
 
     // Post to firebase
     // const db = getDatabase();

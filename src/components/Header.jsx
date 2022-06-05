@@ -25,12 +25,17 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 export const Header = () => {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.cart.value);
+  const productsInCart = useSelector((state) => state.cart.cart);
   const previewCart = useSelector((state) => state.cart.previewCart);
 
+  console.log(productsInCart);
+
   const activePreviewMenu = () => {
-    setTimeout(() => {
-      dispatch(activeCartPreview(!previewCart));
-    }, 350);
+    if (productsInCart.length > 0) {
+      setTimeout(() => {
+        dispatch(activeCartPreview(!previewCart));
+      }, 400);
+    }
   };
 
   return (
@@ -52,7 +57,7 @@ export const Header = () => {
             </Link>
           </Typography>
           <Link to='/cart'>
-            <IconButton aria-label='cart' color='warning' onMouseOver={() => activePreviewMenu()}>
+            <IconButton aria-label='cart' color='warning' onMouseOver={activePreviewMenu}>
               <StyledBadge badgeContent={count} color='secondary'>
                 <ShoppingCartIcon />
               </StyledBadge>
