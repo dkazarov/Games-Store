@@ -8,18 +8,20 @@ import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import { nanoid } from 'nanoid';
 import { addToCart, increment } from '../redux/slices/cartSlice';
+
 import { useDispatch } from 'react-redux';
-import { getDatabase, ref, push, set } from 'firebase/database';
+import { activeCartPreview } from '../redux/slices/cartSlice';
+// import { getDatabase, ref, push, set } from 'firebase/database';
 
 export function ProductCard({ image, title, description, price, genres, obj }) {
   const dispatch = useDispatch();
-  const db = getDatabase();
 
   const addProductToCart = (obj) => {
     dispatch(addToCart(obj));
     dispatch(increment());
 
     // Post to firebase
+    // const db = getDatabase();
     // const postListRef = ref(db, 'cart/');
     // const newPostRef = push(postListRef);
     // set(newPostRef, { ...obj });

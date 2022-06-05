@@ -30,8 +30,7 @@ export const Header = () => {
   const activePreviewMenu = () => {
     setTimeout(() => {
       dispatch(activeCartPreview(!previewCart));
-      // setPreviewCart(!previewCart);
-    }, 500);
+    }, 350);
   };
 
   return (
@@ -53,7 +52,7 @@ export const Header = () => {
             </Link>
           </Typography>
           <Link to='/cart'>
-            <IconButton aria-label='cart' color='warning' onMouseOver={activePreviewMenu}>
+            <IconButton aria-label='cart' color='warning' onMouseOver={() => activePreviewMenu()}>
               <StyledBadge badgeContent={count} color='secondary'>
                 <ShoppingCartIcon />
               </StyledBadge>

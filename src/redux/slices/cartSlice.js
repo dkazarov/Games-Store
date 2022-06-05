@@ -17,8 +17,8 @@ export const cartSlice = createSlice({
     increment: (state) => {
       state.value += 1;
     },
-    activeCartPreview: (state) => {
-      state.previewCart = !state.previewCart;
+    activeCartPreview: (state, action) => {
+      state.previewCart = action.payload;
     },
   },
 });
