@@ -1,19 +1,20 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import style from './CartPreview.module.scss';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
-export const CartPreview = ({ previewCart }) => {
+export const CartPreview = () => {
   const productsInCart = useSelector((state) => state.cart.cart);
+  const previewCartWindow = useSelector((state) => state.cart.previewCart);
 
-  console.log(productsInCart);
+  console.log(previewCartWindow);
 
   return (
     <>
-      {previewCart ? (
+      {previewCartWindow && (
         <div className={style.root}>
           <ul>
             {productsInCart.map((products) => (
@@ -32,8 +33,6 @@ export const CartPreview = ({ previewCart }) => {
             ))}
           </ul>
         </div>
-      ) : (
-        false
       )}
     </>
   );

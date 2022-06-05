@@ -20,9 +20,9 @@ export function ProductCard({ image, title, description, price, genres, obj }) {
     dispatch(increment());
 
     // Post to firebase
-    const postListRef = ref(db, 'cart/');
-    const newPostRef = push(postListRef);
-    set(newPostRef, { ...obj });
+    // const postListRef = ref(db, 'cart/');
+    // const newPostRef = push(postListRef);
+    // set(newPostRef, { ...obj });
   };
 
   return (

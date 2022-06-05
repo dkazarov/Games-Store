@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Typography from '@mui/material/Typography';
@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import { CartPreview } from './CartPreview/CartPreview';
 
+import { activeCartPreview } from '../redux/slices/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -22,13 +23,15 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 export const Header = () => {
+  const dispatch = useDispatch();
   const count = useSelector((state) => state.cart.value);
-  const [previewCart, setPreviewCart] = useState(false);
+  const previewCart = useSelector((state) => state.cart.previewCart);
 
   const activePreviewMenu = () => {
     setTimeout(() => {
-      setPreviewCart(!previewCart);
-    }, 350);
+      dispatch(activeCartPreview(!previewCart));
+      // setPreviewCart(!previewCart);
+    }, 500);
   };
 
   return (
@@ -58,7 +61,7 @@ export const Header = () => {
           </Link>
         </Container>
       </Box>
-      <CartPreview previewCart={previewCart} />
+      <CartPreview />
     </Box>
   );
 };
