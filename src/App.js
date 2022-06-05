@@ -14,7 +14,7 @@ import './firebase.config';
 
 function App() {
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     const dbRef = ref(getDatabase());
     get(child(dbRef, `games/`))

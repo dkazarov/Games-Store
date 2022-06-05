@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
@@ -9,8 +9,6 @@ import { Link } from 'react-router-dom';
 export const CartPreview = () => {
   const productsInCart = useSelector((state) => state.cart.cart);
   const previewCartWindow = useSelector((state) => state.cart.previewCart);
-
-  console.log(previewCartWindow);
 
   return (
     <>

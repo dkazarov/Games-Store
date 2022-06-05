@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import Typography from '@mui/material/Typography';
@@ -27,6 +27,22 @@ export const Header = () => {
   const productsInCart = useSelector((state) => state.cart.cart);
   const previewCart = useSelector((state) => state.cart.previewCart);
 
+  const cartPreview = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!e.path.includes(cartPreview.current)) {
+        dispatch(activeCartPreview(false));
+        console.log(1);
+      }
+    };
+    document.body.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.body.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
   const activePreviewMenu = () => {
     if (productsInCart.length > 0) {
       setTimeout(() => {
@@ -54,7 +70,11 @@ export const Header = () => {
             </Link>
           </Typography>
           <Link to='/cart'>
-            <IconButton aria-label='cart' color='warning' onMouseEnter={activePreviewMenu}>
+            <IconButton
+              ref={cartPreview}
+              aria-label='cart'
+              color='warning'
+              onMouseEnter={activePreviewMenu}>
               <StyledBadge badgeContent={productsInCart.length} color='secondary'>
                 <ShoppingCartIcon />
               </StyledBadge>
