@@ -47,7 +47,7 @@ export const Header = () => {
     if (productsInCart.length > 0) {
       setTimeout(() => {
         dispatch(activeCartPreview(!previewCart));
-      }, 400);
+      }, 350);
     }
   };
 
