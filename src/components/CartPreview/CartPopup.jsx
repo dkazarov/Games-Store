@@ -13,8 +13,8 @@ import { Link } from 'react-router-dom';
 
 export const CartPreview = () => {
   const dispatch = useDispatch();
-  const productsInCart = useSelector((state) => state.cart.cart);
-  const previewCartWindow = useSelector((state) => state.cart.previewCart);
+
+  const { cart, previewCart } = useSelector((state) => state.cart);
 
   const deleteProductFromCart = (id) => {
     dispatch(deleteFromCart(id));
@@ -22,10 +22,10 @@ export const CartPreview = () => {
 
   return (
     <>
-      {previewCartWindow && (
+      {previewCart && (
         <div className={style.root}>
           <ul className={style.ul}>
-            {productsInCart.map((products) => (
+            {cart.map((products) => (
               <li key={nanoid()} className={style.list}>
                 <HighlightOffIcon
                   onClick={() => deleteProductFromCart(products.id)}
