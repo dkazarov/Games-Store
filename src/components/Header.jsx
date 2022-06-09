@@ -8,12 +8,10 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
-import { CartPreview } from '../CartPreview/CartPopup';
+import { CartPreview } from './CartPopoup/CartPopup';
 
-import { activeCartPreview } from '../../redux/slices/cartSlice';
+import { activeCartPreview } from '../redux/slices/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
-
-import style from './Header.module.scss';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -26,7 +24,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export const Header = () => {
   const dispatch = useDispatch();
-  const { cart, previewCart, totlaPrice } = useSelector((state) => state.cart);
+  const { cart, previewCart, totalPrice } = useSelector((state) => state.cart);
 
   const cartPreview = useRef();
 
@@ -70,17 +68,19 @@ export const Header = () => {
               Games Store
             </Link>
           </Typography>
-          <Link to='/cart' className={style.root}>
+          <Link
+            to='/cart'
+            style={{ textDecoration: 'none', fontSize: '16px', color: 'white', fontWeight: 700 }}>
             <IconButton
               ref={cartPreview}
               aria-label='cart'
               color='warning'
               onMouseEnter={activePreviewMenu}>
-              <StyledBadge badgeContent={cart.length} color='secondary' sx={{ mr: 2 }}>
+              <StyledBadge badgeContent={cart.length} color='secondary' sx={{ mr: 1.5 }}>
                 <ShoppingCartIcon />
               </StyledBadge>
             </IconButton>
-            {totlaPrice} грн
+            {totalPrice} грн
           </Link>
         </Container>
       </Box>
