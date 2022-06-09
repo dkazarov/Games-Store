@@ -33,7 +33,10 @@ export const CartPreview = () => {
                 <img src={products.image} alt='product img' className={style.image} />
                 <Box className={style.info}>
                   <Box className={style.title}>{products.title}</Box>
-                  <Box className={style.price}>{products.price} грн</Box>
+                  <Box className={style.price}>
+                    {products.price} грн <span className={style.count}> шт: {products.count}</span>
+                  </Box>
+
                   <Link to='/cart' className={style.link}>
                     <Button variant='contained' size='small' sx={{ display: 'block', m: '0 auto' }}>
                       Купити

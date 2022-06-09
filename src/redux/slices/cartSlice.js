@@ -9,7 +9,13 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addToCart: (state, action) => {
-      state.cart.push(action.payload);
+      const findProduct = state.cart.find((obj) => obj.id === action.payload.id);
+
+      if (findProduct) {
+        findProduct.count++;
+      } else {
+        state.cart.push({ ...action.payload, count: 1 });
+      }
 
       state.totalPrice = state.cart.reduce((sum, obj) => obj.price + sum, 0);
     },
