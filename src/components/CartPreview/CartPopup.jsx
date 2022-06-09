@@ -31,7 +31,7 @@ export const CartPreview = () => {
                   onClick={() => deleteProductFromCart(products.id)}
                   sx={{ cursor: 'pointer', mr: 2 }}
                 />
-                <img src={products.image} alt='image' className={style.image} />
+                <img src={products.image} alt='product img' className={style.image} />
                 <Box className={style.info}>
                   <Box className={style.title}>{products.title}</Box>
                   <Box className={style.price}>{products.price} грн</Box>

@@ -4,6 +4,7 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     cart: [],
+    totlaPrice: 0,
     previewCart: false,
   },
   reducers: {
@@ -13,6 +14,10 @@ export const cartSlice = createSlice({
     deleteFromCart: (state, action) => {
       state.cart = state.cart.filter((item) => item.id !== action.payload);
     },
+    clearCart(state) {
+      state.cart = [];
+    },
+    // Toggle open/close cart popup
     activeCartPreview: (state, action) => {
       state.previewCart = action.payload;
     },

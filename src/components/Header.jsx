@@ -8,7 +8,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
-import { CartPreview } from './CartPreview/CartPreview';
+import { CartPreview } from './CartPreview/CartPopup';
 
 import { activeCartPreview } from '../redux/slices/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
