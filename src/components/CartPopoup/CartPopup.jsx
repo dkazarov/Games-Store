@@ -17,11 +17,11 @@ export const CartPreview = () => {
 
   const cartPreview = useRef();
 
-  useEffect(() => {
-    if (window.location.pathname === '/cart') {
-      dispatch(activeCartPreview(false));
-    }
+  if (window.location.pathname === '/cart') {
+    dispatch(activeCartPreview(false));
+  }
 
+  useEffect(() => {
     const handleClickOutside = (e) => {
       if (!e.path.includes(cartPreview.current)) {
         dispatch(activeCartPreview(false));
