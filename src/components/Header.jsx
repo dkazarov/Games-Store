@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Typography from '@mui/material/Typography';
@@ -29,8 +29,6 @@ export const Header = () => {
   // Bage count
   const productCountOnCart = cart.reduce((acc, obj) => obj.count + acc, 0);
 
-
-
   const activePreviewMenu = () => {
     if (cart.length > 0) {
       setTimeout(() => {
@@ -60,10 +58,7 @@ export const Header = () => {
           <Link
             to='/cart'
             style={{ textDecoration: 'none', fontSize: '16px', color: 'white', fontWeight: 700 }}>
-            <IconButton
-              aria-label='cart'
-              color='warning'
-              onMouseEnter={activePreviewMenu}>
+            <IconButton aria-label='cart' color='warning' onMouseEnter={activePreviewMenu}>
               <StyledBadge badgeContent={productCountOnCart} color='secondary' sx={{ mr: 1.5 }}>
                 <ShoppingCartIcon />
               </StyledBadge>
