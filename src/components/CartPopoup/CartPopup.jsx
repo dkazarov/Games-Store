@@ -16,7 +16,7 @@ export const CartPreview = () => {
   const { cart, previewCart, totalPrice } = useSelector((state) => state.cart);
 
   const cartPreview = useRef();
-  
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (!e.path.includes(cartPreview.current)) {
@@ -50,7 +50,8 @@ export const CartPreview = () => {
                 <Box className={style.info}>
                   <Box className={style.title}>{products.title}</Box>
                   <Box className={style.price}>
-                    {products.price} грн <span className={style.count}> шт: {products.count}</span>
+                    {products.price * products.count} грн{' '}
+                    <span className={style.count}> шт: {products.count}</span>
                   </Box>
 
                   <Link to='/cart' className={style.link}>
