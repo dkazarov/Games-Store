@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { nanoid } from 'nanoid';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteFromCart } from '../../redux/slices/cartSlice';
+import { deleteFromCart, activeCartPreview } from '../../redux/slices/cartSlice';
 
 import style from './CartPreview.module.scss';
 import Box from '@mui/material/Box';
@@ -15,6 +15,22 @@ export const CartPreview = () => {
   const dispatch = useDispatch();
   const { cart, previewCart, totalPrice } = useSelector((state) => state.cart);
 
+  const cartPreview = useRef();
+  
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!e.path.includes(cartPreview.current)) {
+        dispatch(activeCartPreview(false));
+      }
+    };
+    document.body.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.body.removeEventListener('click', handleClickOutside);
+    };
+    // eslint-disable-next-line
+  }, []);
+
   const deleteProductFromCart = (id) => {
     dispatch(deleteFromCart(id));
   };
@@ -22,7 +38,7 @@ export const CartPreview = () => {
   return (
     <>
       {previewCart && (
-        <Box className={style.root}>
+        <Box className={style.root} ref={cartPreview}>
           <ul className={style.ul}>
             {cart.map((products) => (
               <li key={nanoid()} className={style.list}>

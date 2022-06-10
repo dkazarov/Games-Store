@@ -25,6 +25,11 @@ export const cartSlice = createSlice({
         findProduct.count--;
       } else {
         state.cart = state.cart.filter((item) => item.id !== action.payload);
+
+        // Close previewCart window when cart is empty
+        if (!state.cart.length) {
+          state.previewCart = false;
+        }
       }
       state.totalPrice = state.cart.reduce((sum, obj) => obj.price * obj.count + sum, 0);
     },

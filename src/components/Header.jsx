@@ -29,21 +29,7 @@ export const Header = () => {
   // Bage count
   const productCountOnCart = cart.reduce((acc, obj) => obj.count + acc, 0);
 
-  const cartPreview = useRef();
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (!e.path.includes(cartPreview.current)) {
-        dispatch(activeCartPreview(false));
-        console.log(1);
-      }
-    };
-    document.body.addEventListener('click', handleClickOutside);
-
-    return () => {
-      document.body.removeEventListener('click', handleClickOutside);
-    };
-  }, []);
 
   const activePreviewMenu = () => {
     if (cart.length > 0) {
@@ -75,7 +61,6 @@ export const Header = () => {
             to='/cart'
             style={{ textDecoration: 'none', fontSize: '16px', color: 'white', fontWeight: 700 }}>
             <IconButton
-              ref={cartPreview}
               aria-label='cart'
               color='warning'
               onMouseEnter={activePreviewMenu}>
