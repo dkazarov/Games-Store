@@ -18,6 +18,10 @@ export const CartPreview = () => {
   const cartPreview = useRef();
 
   useEffect(() => {
+    if (window.location.pathname === '/cart') {
+      dispatch(activeCartPreview(false));
+    }
+
     const handleClickOutside = (e) => {
       if (!e.path.includes(cartPreview.current)) {
         dispatch(activeCartPreview(false));
@@ -28,6 +32,7 @@ export const CartPreview = () => {
     return () => {
       document.body.removeEventListener('click', handleClickOutside);
     };
+
     // eslint-disable-next-line
   }, []);
 
