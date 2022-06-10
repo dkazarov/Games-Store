@@ -26,6 +26,9 @@ export const Header = () => {
   const dispatch = useDispatch();
   const { cart, previewCart, totalPrice } = useSelector((state) => state.cart);
 
+  // Bage count
+  const productCountOnCart = cart.reduce((acc, obj) => obj.count + acc, 0);
+
   const cartPreview = useRef();
 
   useEffect(() => {
@@ -76,7 +79,7 @@ export const Header = () => {
               aria-label='cart'
               color='warning'
               onMouseEnter={activePreviewMenu}>
-              <StyledBadge badgeContent={cart.length} color='secondary' sx={{ mr: 1.5 }}>
+              <StyledBadge badgeContent={productCountOnCart} color='secondary' sx={{ mr: 1.5 }}>
                 <ShoppingCartIcon />
               </StyledBadge>
             </IconButton>
