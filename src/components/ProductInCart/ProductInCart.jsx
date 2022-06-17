@@ -2,6 +2,7 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 
 import { Box } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import { useSelector } from 'react-redux/es/exports';
 
@@ -12,7 +13,10 @@ export const ProductInCart = () => {
   return (
     <>
       <ul>
-        Корзина
+        <Box sx={{ display: 'flex', alignItems: 'center', fontSize: 36, color: 'white' }}>
+          Корзина
+          <ShoppingCartIcon color='warning' fontSize='large' sx={{ m: 2 }} />
+        </Box>
         {cart.map((products) => (
           <li key={nanoid()} className={style.root}>
             <img src={products.image} width='150' alt='product image' />
