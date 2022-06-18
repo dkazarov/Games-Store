@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    transition: all 0.3s;
+    transform: translateY(-2px);
+    color: #ffe7d4;
+  }
+}

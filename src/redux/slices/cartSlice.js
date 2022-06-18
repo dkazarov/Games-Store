@@ -38,6 +38,8 @@ export const cartSlice = createSlice({
     },
     clearCart(state) {
       state.cart = [];
+      state.totalPrice = 0;
+      state.totalCount = 0;
     },
     // Toggle open/close cart popup
     activeCartPreview: (state, action) => {
@@ -46,6 +48,6 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, deleteFromCart, activeCartPreview } = cartSlice.actions;
+export const { addToCart, deleteFromCart, activeCartPreview, clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
