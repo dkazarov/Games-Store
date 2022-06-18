@@ -36,7 +36,7 @@ export function ProductCard({ image, title, description, price, genres, obj }) {
 
   const openGameCard = () => {
     dispatch(setCurrentGame(obj));
-    navigate(`/store/${obj.title}`);
+    navigate(`/game/${obj.id}/${obj.title}`);
   };
 
   return (
