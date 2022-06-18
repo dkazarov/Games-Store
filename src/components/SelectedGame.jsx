@@ -51,15 +51,14 @@ export const SelectedGame = () => {
           </Button>
         </Typography>
       </Box>
-      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 5 }}>
+      <div>
         <iframe
           width='100%'
           height='500'
           src={game.video}
           title='YouTube video player'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-          allowfullscreen></iframe>
-      </Box>
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'></iframe>
+      </div>
     </>
   );
 };

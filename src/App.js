@@ -7,7 +7,7 @@ import { NotFound } from './pages/NotFound.jsx';
 import { GamePage } from './pages/GamePage';
 
 import { useDispatch } from 'react-redux';
-import { getAllDataFromServer } from './redux/slices/dataSlice';
+import { setAllDataFromServer } from './redux/slices/dataSlice';
 
 import { getDatabase, ref, child, get } from 'firebase/database';
 
@@ -15,20 +15,20 @@ import './firebase.config';
 
 function App() {
   const dispatch = useDispatch();
+  const dbRef = ref(getDatabase());
+
+  const getData = async () => {
+    const snapshot = await get(child(dbRef, `games/`));
+    if (snapshot.exists()) {
+      dispatch(setAllDataFromServer(snapshot.val()));
+    } else {
+      console.log('No data available');
+    }
+  };
 
   useEffect(() => {
-    const dbRef = ref(getDatabase());
-    get(child(dbRef, `games/`))
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          dispatch(getAllDataFromServer(snapshot.val()));
-        } else {
-          console.log('No data available');
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    getData();
+    // eslint-disable-next-line
   }, []);
 
   return (

@@ -6,13 +6,13 @@ export const dataSlice = createSlice({
     data: [],
   },
   reducers: {
-    getAllDataFromServer: (state, action) => {
+    setAllDataFromServer: (state, action) => {
       state.data = action.payload;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { getAllDataFromServer } = dataSlice.actions;
+export const { setAllDataFromServer } = dataSlice.actions;
 
 export default dataSlice.reducer;
