@@ -19,10 +19,12 @@ export const ProductInCart = () => {
         </Box>
         {cart.map((products) => (
           <li key={nanoid()} className={style.root}>
-            <img src={products.image} width='150' alt='product image' />
+            <img src={products.image} width='100' alt='product' />
             <Box className={style.title}>{products.title}</Box>
-            <Box className={style.count}> шт: {products.count}</Box>
-            <Box> Ціна: {products.price} грн</Box>
+            <Box className={style.price__wrapper}>
+              <Box className={style.count}> шт: {products.count}</Box>
+              <Box className={style.price}> Ціна: {products.price} грн</Box>
+            </Box>
           </li>
         ))}
       </ul>
