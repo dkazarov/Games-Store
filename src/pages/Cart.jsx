@@ -9,7 +9,7 @@ export const Cart = () => {
   return (
     <>
       <Header />
-      <Container>
+      <Container maxWidth='lg'>
         <ProductInCart />
       </Container>
     </>

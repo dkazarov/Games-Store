@@ -1,8 +1,9 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 import { useSelector } from 'react-redux/es/exports';
 
@@ -13,8 +14,16 @@ export const ProductInCart = () => {
   return (
     <>
       <ul>
-        <Box sx={{ display: 'flex', alignItems: 'center', fontSize: 36, color: 'white' }}>
-          Корзина
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            fontSize: 36,
+            color: 'white',
+            mb: 5,
+            maxHeight: 100,
+          }}>
+          <Typography variant='h4'>Корзина</Typography>
           <ShoppingCartIcon color='warning' fontSize='large' sx={{ m: 2 }} />
         </Box>
         {cart.map((products) => (
@@ -23,7 +32,8 @@ export const ProductInCart = () => {
             <Box className={style.title}>{products.title}</Box>
             <Box className={style.price__wrapper}>
               <Box className={style.count}> шт: {products.count}</Box>
-              <Box className={style.price}> Ціна: {products.price} грн</Box>
+              <Box className={style.price}> ціна: {products.price} грн</Box>
+              <HighlightOffIcon color='warning' fontSize='medium' sx={{ cursor: 'pointer' }} />
             </Box>
           </li>
         ))}
