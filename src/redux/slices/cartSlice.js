@@ -45,8 +45,11 @@ export const cartSlice = createSlice({
     activeCartPreview: (state, action) => {
       state.previewCart = action.payload;
     },
+    // Cart Selectorder
   },
 });
+
+export const cartSelector = (state) => state.cart;
 
 export const { addToCart, deleteFromCart, activeCartPreview, clearCart } = cartSlice.actions;
 

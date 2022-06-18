@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 import { Box, Typography } from '@mui/material';
 
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { deleteFromCart } from '../../redux/slices/cartSlice';
+import { deleteFromCart, cartSelector } from '../../redux/slices/cartSlice';
 
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 
@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 export const ProductInCart = () => {
   const dispatch = useDispatch();
-  const { cart, totalCount, totalPrice } = useSelector((state) => state.cart);
+  const { cart, totalCount, totalPrice } = useSelector(cartSelector);
 
   const deleteProductFromCart = (id) => {
     dispatch(deleteFromCart(id));

@@ -1,14 +1,16 @@
 import React from 'react';
-import { Grid, Container, CircularProgress } from '@mui/material';
 import { nanoid } from 'nanoid';
+
+import { dataSelector } from '../redux/slices/dataSlice.js';
+import { useSelector } from 'react-redux';
+
+import { Grid, Container, CircularProgress } from '@mui/material';
 
 import { Header } from '../components/Header';
 import { ProductCard } from '../components/ProductCard';
 
-import { useSelector } from 'react-redux';
-
 export const HomePage = () => {
-  const { data, isLoading } = useSelector((state) => state.data);
+  const { data, isLoading } = useSelector(dataSelector);
 
   return (
     <>

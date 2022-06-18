@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { getDatabase, ref, child, get } from 'firebase/database';
 
-export const getAllData = createAsyncThunk('data', async () => {
+export const getAllData = createAsyncThunk('data', async (thunkAPI) => {
   const dbRef = ref(getDatabase());
   const snapshot = await get(child(dbRef, `games/`));
   if (snapshot.exists()) {
@@ -31,11 +31,13 @@ export const dataSlice = createSlice({
       state.isLoading = false;
     },
     [getAllData.rejected]: (state) => {
-      state.isLoading = true;
+      state.isLoading = false;
       state.error = true;
     },
   },
 });
+
+export const dataSelector = (state) => state.data;
 
 export const { setAllDataFromServer } = dataSlice.actions;
 

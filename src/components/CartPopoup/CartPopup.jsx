@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteFromCart, activeCartPreview } from '../../redux/slices/cartSlice';
+import { deleteFromCart, activeCartPreview, cartSelector } from '../../redux/slices/cartSlice';
 
 import { Box, Button } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -13,7 +13,7 @@ import style from './CartPreview.module.scss';
 
 export const CartPreview = () => {
   const dispatch = useDispatch();
-  const { cart, previewCart, totalPrice } = useSelector((state) => state.cart);
+  const { cart, previewCart, totalPrice } = useSelector(cartSelector);
 
   const cartPreview = useRef();
 

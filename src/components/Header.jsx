@@ -1,16 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Typography from '@mui/material/Typography';
-import Badge from '@mui/material/Badge';
-import IconButton from '@mui/material/IconButton';
+import { Typography, Badge, IconButton, Container, Box } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
+
 import { styled } from '@mui/material/styles';
 import { CartPreview } from './CartPopoup/CartPopup';
 
-import { activeCartPreview } from '../redux/slices/cartSlice';
+import { activeCartPreview, cartSelector } from '../redux/slices/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -24,7 +21,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export const Header = () => {
   const dispatch = useDispatch();
-  const { cart, previewCart, totalPrice, totalCount } = useSelector((state) => state.cart);
+  const { cart, previewCart, totalPrice, totalCount } = useSelector(cartSelector);
 
   const activePreviewMenu = () => {
     if (cart.length > 0) {
