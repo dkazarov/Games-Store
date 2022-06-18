@@ -1,23 +1,29 @@
 import React from 'react';
-import { Box, Chip, Typography, Button } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../redux/slices/cartSlice';
+import { Box, Chip, Typography, Button, Alert, AlertTitle } from '@mui/material';
+import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 
 export const SelectedGame = () => {
   const { game } = useSelector((state) => state.game);
 
-  const dispatch = useDispatch();
+  if (!game) {
+    return (
+      <Alert
+        severity='error'
+        sx={{
+          position: 'absolute',
+          bottom: 0,
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '90%',
+          fontSize: 20,
+        }}>
+        <AlertTitle>Error</AlertTitle>
+        Упс... Щось пішло не так...
+      </Alert>
+    );
+  }
 
-  const addProductToCart = () => {
-    dispatch(addToCart(game));
-
-    // Post to firebase
-    // const db = getDatabase();
-    // const postListRef = ref(db, 'cart/');
-    // const newPostRef = push(postListRef);
-    // set(newPostRef, { ...obj });
-  };
   return (
     <>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', textAlign: 'center', mb: 7 }}>
@@ -46,7 +52,7 @@ export const SelectedGame = () => {
           <Typography variant='body1' color='white' sx={{ fontSize: 21, pt: 5, mb: 5 }}>
             {game.description}
           </Typography>
-          <Button onClick={addProductToCart} variant='contained' sx={{ width: '70%', m: '0 auto' }}>
+          <Button variant='contained' sx={{ width: '70%', m: '0 auto' }}>
             Купити
           </Button>
         </Typography>
