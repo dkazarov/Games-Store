@@ -24,10 +24,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export const Header = () => {
   const dispatch = useDispatch();
-  const { cart, previewCart, totalPrice } = useSelector((state) => state.cart);
-
-  // Bage count
-  const productCountOnCart = cart.reduce((acc, obj) => obj.count + acc, 0);
+  const { cart, previewCart, totalPrice, totalCount } = useSelector((state) => state.cart);
 
   const activePreviewMenu = () => {
     if (cart.length > 0) {
@@ -59,7 +56,7 @@ export const Header = () => {
             to='/cart'
             style={{ textDecoration: 'none', fontSize: '16px', color: 'white', fontWeight: 700 }}>
             <IconButton aria-label='cart' color='warning' onMouseEnter={activePreviewMenu}>
-              <StyledBadge badgeContent={productCountOnCart} color='secondary' sx={{ mr: 1.5 }}>
+              <StyledBadge badgeContent={totalCount} color='secondary' sx={{ mr: 1.5 }}>
                 <ShoppingCartIcon />
               </StyledBadge>
             </IconButton>

@@ -12,15 +12,18 @@ import style from '../ProductInCart/ProductInCart.module.scss';
 
 export const ProductInCart = () => {
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state.cart);
+  const { cart, totalCount, totalPrice } = useSelector((state) => state.cart);
 
   const deleteProductFromCart = (id) => {
     dispatch(deleteFromCart(id));
+    dispatch();
   };
+
+  console.log(cart);
 
   return (
     <>
-      <ul>
+      <ul style={{ marginBottom: '10%' }}>
         <Box
           sx={{
             display: 'flex',
@@ -42,7 +45,7 @@ export const ProductInCart = () => {
               <Box className={style.price}> ціна: {products.price} грн</Box>
               <HighlightOffIcon
                 color='warning'
-                fontSize='medium'
+                fontSize='large'
                 sx={{ cursor: 'pointer' }}
                 onClick={() => deleteProductFromCart(products.id)}
               />
@@ -50,6 +53,50 @@ export const ProductInCart = () => {
           </li>
         ))}
       </ul>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', m: 5 }}>
+        <Typography
+          variant='h5'
+          sx={{
+            fontSize: 28,
+            color: 'white',
+            p: 1.5,
+            backgroundColor: '#222',
+            borderRadius: '7px',
+            maxWidth: 300,
+            textAlign: 'center',
+            fontWeight: 300,
+          }}>
+          Кількість: {totalCount}
+        </Typography>
+        <Typography
+          variant='h5'
+          sx={{
+            fontSize: 28,
+            color: 'white',
+            p: 1.5,
+            backgroundColor: '#ef7c3d',
+            borderRadius: '7px',
+            maxWidth: 300,
+            textAlign: 'center',
+          }}>
+          Ціна: {totalPrice} грн
+        </Typography>
+      </Box>
+      <Typography
+        variant='h6'
+        sx={{
+          fontSize: 24,
+          color: 'white',
+          p: 1,
+          backgroundColor: '#222',
+          borderRadius: '7px',
+          maxWidth: 300,
+          textAlign: 'center',
+          m: '0 auto 50px',
+          cursor: 'pointer',
+        }}>
+        Перейти до сплати
+      </Typography>
     </>
   );
 };
