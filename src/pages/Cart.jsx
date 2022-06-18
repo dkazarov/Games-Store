@@ -11,14 +11,11 @@ import { ClearCart } from '../components/ClearCart/ClearCart';
 import { ProductInCart } from '../components/ProductInCart/ProductInCart';
 import { CartIcon } from '../components/EmptyCart';
 
-
 import style from '../components/ClearCart/ClearCart.module.scss';
 
 export const Cart = () => {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.cart);
-
-  console.log(cart);
 
   const clearAllProductInCart = () => {
     dispatch(clearCart());

@@ -17,15 +17,11 @@ export const ProductInCart = () => {
 
   const deleteProductFromCart = (id) => {
     dispatch(deleteFromCart(id));
-    dispatch();
   };
-
-  console.log(cart);
 
   return (
     <>
       <ul style={{ marginBottom: '10%' }}>
-
         {cart.map((products) => (
           <li key={nanoid()} className={style.root}>
             <img src={products.image} width='100' alt='product' />
@@ -69,7 +65,7 @@ export const ProductInCart = () => {
             maxWidth: 300,
             textAlign: 'center',
           }}>
-          Ціна: {totalPrice} грн
+          Загалом: {totalPrice} грн
         </Typography>
       </Box>
       <Link to='*'>

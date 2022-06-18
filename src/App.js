@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { HomePage } from './pages/HomePage.jsx';
 import { Cart } from './pages/Cart.jsx';
 import { NotFound } from './pages/NotFound.jsx';
+import { GamePage } from './pages/GamePage';
 
 import { useDispatch } from 'react-redux';
 import { getAllDataFromServer } from './redux/slices/dataSlice';
@@ -14,7 +15,7 @@ import './firebase.config';
 
 function App() {
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     const dbRef = ref(getDatabase());
     get(child(dbRef, `games/`))
@@ -34,6 +35,7 @@ function App() {
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/cart' element={<Cart />} />
+      <Route path='/store/:title' element={<GamePage />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   );

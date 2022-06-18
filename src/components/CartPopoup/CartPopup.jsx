@@ -1,15 +1,15 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+
 import { nanoid } from 'nanoid';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteFromCart, activeCartPreview } from '../../redux/slices/cartSlice';
 
-import style from './CartPreview.module.scss';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import { Box, Button } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-import { Link } from 'react-router-dom';
+import style from './CartPreview.module.scss';
 
 export const CartPreview = () => {
   const dispatch = useDispatch();
@@ -17,11 +17,11 @@ export const CartPreview = () => {
 
   const cartPreview = useRef();
 
-  if (window.location.pathname === '/cart') {
-    dispatch(activeCartPreview(false));
-  }
-
   useEffect(() => {
+    if (window.location.pathname === '/cart') {
+      dispatch(activeCartPreview(false));
+    }
+
     const handleClickOutside = (e) => {
       if (!e.path.includes(cartPreview.current)) {
         dispatch(activeCartPreview(false));
@@ -34,7 +34,7 @@ export const CartPreview = () => {
     };
 
     // eslint-disable-next-line
-  }, []);
+  }, [previewCart]);
 
   const deleteProductFromCart = (id) => {
     dispatch(deleteFromCart(id));

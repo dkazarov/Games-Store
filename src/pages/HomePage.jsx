@@ -1,10 +1,11 @@
 import React from 'react';
-import { Header } from '../components/Header';
-import Grid from '@mui/material/Grid';
-import { ProductCard } from '../components/ProductCard';
-import { useSelector } from 'react-redux';
-import Container from '@mui/material/Container';
+import { Grid, Container } from '@mui/material';
 import { nanoid } from 'nanoid';
+
+import { Header } from '../components/Header';
+import { ProductCard } from '../components/ProductCard';
+
+import { useSelector } from 'react-redux';
 
 export const HomePage = () => {
   const data = useSelector((state) => state.data.data);
