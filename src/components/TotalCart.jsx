@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import { deleteFromCart, cartSelector } from '../redux/slices/cartSlice';
+import { cartSelector } from '../redux/slices/cartSlice';
 
 import { Box, Typography } from '@mui/material';
 

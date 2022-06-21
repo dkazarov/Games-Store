@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { deleteFromCart, cartSelector } from '../../redux/slices/cartSlice';
+import { deleteFromCart } from '../../redux/slices/cartSlice';
 
-import { useDispatch, useSelector } from 'react-redux/es/exports';
+import { useDispatch } from 'react-redux/es/exports';
 
-import style from '../ProductInCart/ProductInCart.module.scss';
+import style from '../CartItem/CartItem.module.scss';
 
 export const ProductInCart = ({ id, image, title, price, count }) => {
   const dispatch = useDispatch();

@@ -10,7 +10,7 @@ import { clearCart, cartSelector } from '../redux/slices/cartSlice';
 
 import { Header } from '../components/Header';
 import { ClearCart } from '../components/ClearCart/ClearCart';
-import { ProductInCart } from '../components/ProductInCart/ProductInCart';
+import { ProductInCart } from '../components/CartItem/CartItem';
 import { CartIcon } from '../components/EmptyCart';
 import { TotalCart } from '../components/TotalCart';
 
