@@ -18,7 +18,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<HomePage />} />
+      <Route path='' element={<HomePage />} />
       <Route path='/cart' element={<Cart />} />
       <Route path='/game/:id/:title' element={<GamePage />} />
       <Route path='*' element={<NotFound />} />

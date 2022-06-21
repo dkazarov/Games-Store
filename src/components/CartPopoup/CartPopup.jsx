@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { nanoid } from 'nanoid';
 
@@ -13,12 +13,14 @@ import style from './CartPreview.module.scss';
 
 export const CartPreview = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
+
   const { cart, previewCart, totalPrice } = useSelector(cartSelector);
 
   const cartPreview = useRef();
 
   useEffect(() => {
-    if (window.location.pathname === '/cart') {
+    if (location.pathname === '/cart') {
       dispatch(activeCartPreview(false));
     }
 
