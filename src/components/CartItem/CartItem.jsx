@@ -3,7 +3,7 @@ import React from 'react';
 import { Box } from '@mui/material';
 
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { deleteFromCart } from '../../redux/slices/cartSlice';
+import { deleteFromCart, addToCart, decrementItem } from '../../redux/slices/cartSlice';
 
 import { useDispatch } from 'react-redux/es/exports';
 
@@ -15,8 +15,16 @@ import style from '../CartItem/CartItem.module.scss';
 export const ProductInCart = ({ id, image, title, price, count }) => {
   const dispatch = useDispatch();
 
-  const deleteProductFromCart = (id) => {
+  const deleteProductFromCart = () => {
     dispatch(deleteFromCart(id));
+  };
+
+  const incrementProduct = () => {
+    dispatch(addToCart({ id }));
+  };
+
+  const decrementProduct = () => {
+    dispatch(decrementItem(id));
   };
 
   return (
@@ -27,15 +35,15 @@ export const ProductInCart = ({ id, image, title, price, count }) => {
           <Box className={style.title}>{title}</Box>
           <Box className={style.price__wrapper}>
             <Box className={style.count}>
-              <RemoveCircleOutlineIcon sx={{ mr: 1 }} />
+              <RemoveCircleOutlineIcon sx={{ mr: 1 }} onClick={decrementProduct} />
               {count}
-              <AddCircleOutlineIcon sx={{ ml: 1 }} />
+              <AddCircleOutlineIcon sx={{ ml: 1 }} onClick={incrementProduct} />
             </Box>
             <Box className={style.price}>{price * count} грн</Box>
             <HighlightOffIcon
               color='error'
               sx={{ mr: 2, cursor: 'pointer' }}
-              onClick={() => deleteProductFromCart(id)}
+              onClick={deleteProductFromCart}
             />
           </Box>
         </li>

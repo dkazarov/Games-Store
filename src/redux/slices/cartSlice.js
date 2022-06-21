@@ -20,18 +20,13 @@ export const cartSlice = createSlice({
       state.totalPrice = state.cart.reduce((sum, obj) => obj.price * obj.count + sum, 0);
       state.totalCount = state.cart.reduce((acc, obj) => obj.count + acc, 0);
     },
-    deleteFromCart: (state, action) => {
+    decrementItem: (state, action) => {
       const findProduct = state.cart.find((obj) => obj.id === action.payload);
 
       if (findProduct.count > 1) {
         findProduct.count--;
       } else {
         state.cart = state.cart.filter((item) => item.id !== action.payload);
-
-        // Close previewCart window when cart is empty
-        if (!state.cart.length) {
-          state.previewCart = false;
-        }
       }
       state.totalPrice = state.cart.reduce((sum, obj) => obj.price * obj.count + sum, 0);
       state.totalCount = state.cart.reduce((acc, obj) => obj.count + acc, 0);
@@ -45,12 +40,12 @@ export const cartSlice = createSlice({
     activeCartPreview: (state, action) => {
       state.previewCart = action.payload;
     },
-    // Cart Selectorder
   },
 });
 
 export const cartSelector = (state) => state.cart;
 
-export const { addToCart, deleteFromCart, activeCartPreview, clearCart } = cartSlice.actions;
+export const { addToCart, deleteFromCart, activeCartPreview, clearCart, decrementItem } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
