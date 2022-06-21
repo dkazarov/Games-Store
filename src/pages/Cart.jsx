@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { nanoid } from 'nanoid';
+
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Container, Box, Typography } from '@mui/material';
 
@@ -10,6 +12,7 @@ import { Header } from '../components/Header';
 import { ClearCart } from '../components/ClearCart/ClearCart';
 import { ProductInCart } from '../components/ProductInCart/ProductInCart';
 import { CartIcon } from '../components/EmptyCart';
+import { TotalCart } from '../components/TotalCart';
 
 import style from '../components/ClearCart/ClearCart.module.scss';
 
@@ -37,14 +40,17 @@ export const Cart = () => {
               maxHeight: 50,
             }}>
             <Typography variant='h4' sx={{ display: 'flex', alignItems: 'center' }}>
-              Корзина
+              Кошик
               <ShoppingCartIcon color='warning' fontSize='large' sx={{ m: 2 }} />
             </Typography>
             <Box className={style.root} onClick={() => clearAllProductInCart()}>
               <ClearCart />
             </Box>
           </Box>
-          <ProductInCart />
+          {cart.map((products) => (
+            <ProductInCart {...products} key={nanoid()} />
+          ))}
+          <TotalCart />
         </Container>
       ) : (
         <Container>
