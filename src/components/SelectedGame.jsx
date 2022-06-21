@@ -2,9 +2,14 @@ import React from 'react';
 import { Box, Chip, Typography, Button, Alert, AlertTitle } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
+import { useParams } from 'react-router-dom';
 
 export const SelectedGame = () => {
   const { game } = useSelector((state) => state.game);
+
+  const params = useParams();
+
+  console.log(params);
 
   if (!game) {
     return (
