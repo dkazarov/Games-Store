@@ -27,6 +27,7 @@ interface IProductCard {
   price: number;
   genres: string[];
   count: number;
+  video: string;
 }
 
 export const ProductCard: React.FC<IProductCard> = ({
@@ -37,14 +38,13 @@ export const ProductCard: React.FC<IProductCard> = ({
   price,
   genres,
   count,
+  video,
 }) => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
   const addProductToCart = () => {
-    console.log(price);
-
-    dispatch(addToCart({ id, image, title, description, price, genres, count }));
+    dispatch(addToCart({ id, image, title, description, price, genres, count, video }));
     dispatch(activeCartPreview(false));
 
     // Post to firebase
@@ -55,7 +55,9 @@ export const ProductCard: React.FC<IProductCard> = ({
   };
 
   const openGameCard = () => {
-    dispatch(setCurrentGame({ id, title }));
+    console.log(id);
+
+    dispatch(setCurrentGame({ id, image, title, description, price, genres, count, video }));
     navigate(`/game/${id}/${title}`);
   };
 

@@ -6,6 +6,8 @@ import { nanoid } from 'nanoid';
 export const SelectedGame = () => {
   const { game } = useSelector((state) => state.game);
 
+  console.log(game);
+
   if (!game) {
     return (
       <Alert

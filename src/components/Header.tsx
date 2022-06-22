@@ -23,8 +23,6 @@ export const Header: React.FC = () => {
   const dispatch = useDispatch();
   const { cart, previewCart, totalPrice, totalCount } = useSelector(cartSelector);
 
-  console.log(totalPrice);
-
   const activePreviewMenu = () => {
     if (cart.length > 0) {
       setTimeout(() => {
