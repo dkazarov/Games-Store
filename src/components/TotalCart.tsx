@@ -6,10 +6,11 @@ import { cartSelector } from '../redux/slices/cartSlice';
 
 import { Box, Typography } from '@mui/material';
 
-import { BackToHome } from '../components/BackToHome';
+import { BackToHome } from './BackToHome';
 
-export const TotalCart = () => {
+export const TotalCart: React.FC = () => {
   const { totalCount, totalPrice } = useSelector(cartSelector);
+  
   return (
     <>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', m: 5 }}>
@@ -59,7 +60,7 @@ export const TotalCart = () => {
           Перейти до оплати
         </Typography>
       </Link>
-      <BackToHome sx={{ display: 'flex' }} />
+      <BackToHome />
     </>
   );
 };
