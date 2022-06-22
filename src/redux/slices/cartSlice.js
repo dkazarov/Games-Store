@@ -30,6 +30,22 @@ export const cartSlice = createSlice({
       state.totalCount = state.cart.reduce((acc, obj) => obj.count + acc, 0);
       state.totalPrice = state.cart.reduce((sum, obj) => obj.price * obj.count + sum, 0);
     },
+    decrementItemPopup(state, action) {
+      const findProduct = state.cart.find((obj) => obj.id === action.payload);
+
+      if (findProduct.count > 1) {
+        findProduct.count--;
+      } else {
+        state.cart = state.cart.filter((obj) => obj.id !== action.payload);
+      }
+
+      if (state.cart.length === 0) {
+        state.previewCart = false;
+      }
+
+      state.totalCount = state.cart.reduce((acc, obj) => obj.count + acc, 0);
+      state.totalPrice = state.cart.reduce((sum, obj) => obj.price * obj.count + sum, 0);
+    },
     deleteProduct(state, action) {
       state.cart = state.cart.filter((obj) => obj.id !== action.payload);
       state.totalCount = state.cart.reduce((acc, obj) => obj.count + acc, 0);
@@ -56,6 +72,7 @@ export const {
   clearCart,
   decrementItem,
   deleteProduct,
+  decrementItemPopup,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

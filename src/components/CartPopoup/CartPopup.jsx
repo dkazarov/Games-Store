@@ -4,7 +4,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteFromCart, activeCartPreview, cartSelector } from '../../redux/slices/cartSlice';
+import {
+  decrementItemPopup,
+  activeCartPreview,
+  cartSelector,
+  decrementItem,
+} from '../../redux/slices/cartSlice';
 
 import { Box, Button } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -39,7 +44,7 @@ export const CartPreview = () => {
   }, [previewCart]);
 
   const deleteProductFromCart = (id) => {
-    dispatch(deleteFromCart(id));
+    dispatch(decrementItemPopup(id));
   };
 
   return (
