@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { getDatabase, ref, child, get } from 'firebase/database';
 
-export const getAllData = createAsyncThunk('data', async (thunkAPI) => {
+export const getAllData: AsyncThunk<any, void, {}> = createAsyncThunk('data', async () => {
   const dbRef = ref(getDatabase());
   const snapshot = await get(child(dbRef, `games/`));
   if (snapshot.exists()) {

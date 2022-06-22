@@ -8,7 +8,6 @@ import {
   decrementItemPopup,
   activeCartPreview,
   cartSelector,
-  decrementItem,
 } from '../../redux/slices/cartSlice';
 
 import { Box, Button } from '@mui/material';

@@ -1,18 +1,25 @@
 import React from 'react';
 
 import { Box } from '@mui/material';
-
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { addToCart, decrementItem, deleteProduct } from '../../redux/slices/cartSlice';
 
 import { useDispatch } from 'react-redux/es/exports';
+import { addToCart, decrementItem, deleteProduct } from '../../redux/slices/cartSlice';
 
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
 import style from '../CartItem/CartItem.module.scss';
 
-export const CrtItem = ({ id, image, title, price, count }) => {
+interface ICartItemProps {
+  id: number;
+  image: string;
+  title: string;
+  price: number;
+  count: number;
+}
+
+export const CartItem: React.FC<ICartItemProps> = ({ id, image, title, price, count }) => {
   const dispatch = useDispatch();
 
   const deleteProductFromCart = () => {
