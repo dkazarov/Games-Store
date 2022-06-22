@@ -35,26 +35,24 @@ export const CartItem: React.FC<ICartItemProps> = ({ id, image, title, price, co
   };
 
   return (
-    <>
-      <ul style={{ marginBottom: '3%' }}>
-        <li className={style.root}>
-          <img src={image} width='70' alt='product' />
-          <Box className={style.title}>{title}</Box>
-          <Box className={style.price__wrapper}>
-            <Box className={style.count}>
-              <RemoveCircleOutlineIcon sx={{ mr: 1 }} onClick={decrementProduct} />
-              {count}
-              <AddCircleOutlineIcon sx={{ ml: 1 }} onClick={incrementProduct} />
-            </Box>
-            <Box className={style.price}>{price * count} грн</Box>
-            <HighlightOffIcon
-              color='warning'
-              sx={{ mr: 2, cursor: 'pointer' }}
-              onClick={deleteProductFromCart}
-            />
+    <ul style={{ marginBottom: '3%' }}>
+      <li className={style.root}>
+        <img src={image} width='70' alt='product' />
+        <Box className={style.title}>{title}</Box>
+        <Box className={style.price__wrapper}>
+          <Box className={style.count}>
+            <RemoveCircleOutlineIcon sx={{ mr: 1 }} onClick={decrementProduct} />
+            {count}
+            <AddCircleOutlineIcon sx={{ ml: 1 }} onClick={incrementProduct} />
           </Box>
-        </li>
-      </ul>
-    </>
+          <Box className={style.price}>{price * count} грн</Box>
+          <HighlightOffIcon
+            color='warning'
+            sx={{ mr: 2, cursor: 'pointer' }}
+            onClick={deleteProductFromCart}
+          />
+        </Box>
+      </li>
+    </ul>
   );
 };

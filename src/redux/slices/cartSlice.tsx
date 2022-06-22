@@ -1,13 +1,34 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../store';
+
+interface ICartItem {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+  price: number;
+  genres: string[];
+  count: number;
+  video: string;
+}
+
+interface ICartSliceState {
+  cart: ICartItem[];
+  totalPrice: number;
+  previewCart: boolean;
+  totalCount: number;
+}
+
+const initialState: ICartSliceState = {
+  cart: [],
+  totalPrice: 0,
+  previewCart: false,
+  totalCount: 0,
+};
 
 export const cartSlice = createSlice({
   name: 'cart',
-  initialState: {
-    cart: [],
-    totalPrice: 0,
-    previewCart: false,
-    totalCount: 0,
-  },
+  initialState,
   reducers: {
     addToCart(state, action) {
       const findProduct = state.cart.find((obj) => obj.id === action.payload.id);
@@ -21,7 +42,7 @@ export const cartSlice = createSlice({
       state.totalPrice = state.cart.reduce((sum, obj) => obj.price * obj.count + sum, 0);
     },
     decrementItem(state, action) {
-      const findProduct = state.cart.find((obj) => obj.id === action.payload);
+      const findProduct: any = state.cart.find((obj) => obj.id === action.payload);
 
       if (findProduct.count > 1) {
         findProduct.count--;
@@ -31,7 +52,7 @@ export const cartSlice = createSlice({
       state.totalPrice = state.cart.reduce((sum, obj) => obj.price * obj.count + sum, 0);
     },
     decrementItemPopup(state, action) {
-      const findProduct = state.cart.find((obj) => obj.id === action.payload);
+      const findProduct: any = state.cart.find((obj) => obj.id === action.payload);
 
       if (findProduct.count > 1) {
         findProduct.count--;
@@ -63,11 +84,10 @@ export const cartSlice = createSlice({
   },
 });
 
-export const cartSelector = (state) => state.cart;
+export const cartSelector = (state: RootState) => state.cart;
 
 export const {
   addToCart,
-  deleteFromCart,
   activeCartPreview,
   clearCart,
   decrementItem,
