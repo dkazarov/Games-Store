@@ -16,11 +16,22 @@ import { TotalCart } from '../components/TotalCart';
 
 import style from '../components/ClearCart/ClearCart.module.scss';
 
-export const Cart = () => {
+interface ICart {
+  id: number;
+  image: string;
+  price: number;
+  title: string;
+  count: number;
+  video: string;
+  description: string;
+  genres: string[];
+}
+
+export const Cart: React.FC = () => {
   const dispatch = useDispatch();
   const { cart } = useSelector(cartSelector);
 
-  const clearAllProductInCart = () => {
+  const clearAllProductInCart: () => void = () => {
     dispatch(clearCart());
   };
 
@@ -43,11 +54,11 @@ export const Cart = () => {
               Кошик
               <ShoppingCartIcon color='warning' fontSize='large' sx={{ m: 2 }} />
             </Typography>
-            <Box className={style.root} onClick={() => clearAllProductInCart()}>
+            <Box className={style.root} onClick={clearAllProductInCart}>
               <ClearCart />
             </Box>
           </Box>
-          {cart.map((products) => (
+          {cart.map((products: ICart) => (
             <CartItem {...products} key={nanoid()} />
           ))}
           <TotalCart />

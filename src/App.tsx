@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { HomePage } from './pages/HomePage.jsx';
-import { Cart } from './pages/Cart.jsx';
+import { Cart } from './pages/Cart';
 import { NotFound } from './pages/NotFound.jsx';
 import { GamePage } from './pages/GamePage';
 
@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 
 import './firebase.config';
 
-function App() {
+const App: React.FC = () => {
   const dispatch = useDispatch();
   // Get all data from beckend
   dispatch(getAllData());
@@ -24,6 +24,6 @@ function App() {
       <Route path='*' element={<NotFound />} />
     </Routes>
   );
-}
+};
 
 export default App;
