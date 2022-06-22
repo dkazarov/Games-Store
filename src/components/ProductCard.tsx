@@ -19,7 +19,25 @@ import { activeCartPreview } from '../redux/slices/cartSlice';
 
 // import { getDatabase, ref, push, set } from 'firebase/database';
 
-export const ProductCard = ({ id, image, title, description, price, genres, count }) => {
+interface IProductCard {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+  price: number;
+  genres: string[];
+  count: number;
+}
+
+export const ProductCard: React.FC<IProductCard> = ({
+  id,
+  image,
+  title,
+  description,
+  price,
+  genres,
+  count,
+}) => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
