@@ -19,22 +19,24 @@ interface Iproducts {
   image: string;
   price: number;
 }
-
 export const CartPreview: React.FC = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
   const { cart, previewCart, totalPrice } = useSelector(cartSelector);
 
-  const cartPreview = useRef();
+  const cartPreview = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (location.pathname === '/cart') {
       dispatch(activeCartPreview(false));
     }
 
-    const handleClickOutside = (e: any) => {
-      if (!e.path.includes(cartPreview.current)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      const _event = event as MouseEvent & {
+        path: Node[];
+      };
+      if (cartPreview.current && !_event.path.includes(cartPreview.current)) {
         dispatch(activeCartPreview(false));
       }
     };
@@ -50,7 +52,7 @@ export const CartPreview: React.FC = () => {
   return (
     <>
       {previewCart && (
-        <Box className={style.root} ref={cartPreview}>
+        <div ref={cartPreview} className={style.root}>
           <ul className={style.ul}>
             {cart.map((products: Iproducts) => (
               <CartPopupItem {...products} key={nanoid()} />
@@ -69,7 +71,7 @@ export const CartPreview: React.FC = () => {
               Загальна сумма: {totalPrice} грн
             </Box>
           </Link>
-        </Box>
+        </div>
       )}
     </>
   );
