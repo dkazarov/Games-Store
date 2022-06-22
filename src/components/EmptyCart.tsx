@@ -1,9 +1,12 @@
-import { Typography, Box } from '@mui/material';
 import React from 'react';
-import cartEmptyImg from '../assets/empty-cart.png';
+
+import { Typography, Box } from '@mui/material';
+
 import { BackToHome } from './BackToHome';
 
-export const CartIcon = () => {
+import cartEmptyImg from '../assets/empty-cart.png';
+
+export const CartIcon: React.FC = () => {
   return (
     <>
       <Box

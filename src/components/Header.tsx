@@ -19,7 +19,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const dispatch = useDispatch();
   const { cart, previewCart, totalPrice, totalCount } = useSelector(cartSelector);
 
