@@ -4,18 +4,23 @@ import { Link, useLocation } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  decrementItemPopup,
-  activeCartPreview,
-  cartSelector,
-} from '../../redux/slices/cartSlice';
+import { activeCartPreview, cartSelector } from '../../redux/slices/cartSlice';
 
-import { Box, Button } from '@mui/material';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import { CartPopupItem } from './CartPopupItem';
 
 import style from './CartPreview.module.scss';
 
-export const CartPreview = () => {
+import { Box } from '@mui/material';
+
+interface Iproducts {
+  id: number;
+  count: number;
+  title: string;
+  image: string;
+  price: number;
+}
+
+export const CartPreview: React.FC = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -28,7 +33,7 @@ export const CartPreview = () => {
       dispatch(activeCartPreview(false));
     }
 
-    const handleClickOutside = (e) => {
+    const handleClickOutside = (e: any) => {
       if (!e.path.includes(cartPreview.current)) {
         dispatch(activeCartPreview(false));
       }
@@ -42,36 +47,13 @@ export const CartPreview = () => {
     // eslint-disable-next-line
   }, [previewCart]);
 
-  const deleteProductFromCart = (id) => {
-    dispatch(decrementItemPopup(id));
-  };
-
   return (
     <>
       {previewCart && (
         <Box className={style.root} ref={cartPreview}>
           <ul className={style.ul}>
-            {cart.map((products) => (
-              <li key={nanoid()} className={style.list}>
-                <HighlightOffIcon
-                  onClick={() => deleteProductFromCart(products.id)}
-                  sx={{ cursor: 'pointer', mr: 2 }}
-                />
-                <img src={products.image} alt='product img' className={style.image} />
-                <Box className={style.info}>
-                  <Box className={style.title}>{products.title}</Box>
-                  <Box className={style.price}>
-                    {products.price * products.count} грн{' '}
-                    <span className={style.count}> шт: {products.count}</span>
-                  </Box>
-
-                  <Link to='/cart' className={style.link}>
-                    <Button variant='contained' size='small' sx={{ display: 'block', m: '0 auto' }}>
-                      Купити
-                    </Button>
-                  </Link>
-                </Box>
-              </li>
+            {cart.map((products: Iproducts) => (
+              <CartPopupItem {...products} key={nanoid()} />
             ))}
           </ul>
           <Link to='/cart'>
