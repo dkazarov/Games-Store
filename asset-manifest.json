@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/games-store/static/css/main.d0c65b91.css",
-    "main.js": "/games-store/static/js/main.00ad3c53.js",
-    "static/js/787.28cb0dcd.chunk.js": "/games-store/static/js/787.28cb0dcd.chunk.js",
-    "index.html": "/games-store/index.html",
-    "main.d0c65b91.css.map": "/games-store/static/css/main.d0c65b91.css.map",
-    "main.00ad3c53.js.map": "/games-store/static/js/main.00ad3c53.js.map",
-    "787.28cb0dcd.chunk.js.map": "/games-store/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/static/css/main.d0c65b91.css",
+    "main.js": "/static/js/main.2ac93cf8.js",
+    "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/index.html",
+    "main.d0c65b91.css.map": "/static/css/main.d0c65b91.css.map",
+    "main.2ac93cf8.js.map": "/static/js/main.2ac93cf8.js.map",
+    "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d0c65b91.css",
-    "static/js/main.00ad3c53.js"
+    "static/js/main.2ac93cf8.js"
   ]
 }
