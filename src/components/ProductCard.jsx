@@ -19,12 +19,14 @@ import { activeCartPreview } from '../redux/slices/cartSlice';
 
 // import { getDatabase, ref, push, set } from 'firebase/database';
 
-export function ProductCard({ image, title, description, price, genres, obj }) {
+export const ProductCard = ({ id, image, title, description, price, genres, count }) => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  const addProductToCart = (obj) => {
-    dispatch(addToCart(obj));
+  const addProductToCart = () => {
+    console.log(price);
+
+    dispatch(addToCart({ id, image, title, description, price, genres, count }));
     dispatch(activeCartPreview(false));
 
     // Post to firebase
@@ -35,8 +37,8 @@ export function ProductCard({ image, title, description, price, genres, obj }) {
   };
 
   const openGameCard = () => {
-    dispatch(setCurrentGame(obj));
-    navigate(`/game/${obj.id}/${obj.title}`);
+    dispatch(setCurrentGame({ id, title }));
+    navigate(`/game/${id}/${title}`);
   };
 
   return (
@@ -76,10 +78,10 @@ export function ProductCard({ image, title, description, price, genres, obj }) {
         <Button size='small' variant='outlined'>
           Ціна: {price} грн
         </Button>
-        <Button size='small' variant='contained' onClick={() => addProductToCart({ ...obj })}>
+        <Button size='small' variant='contained' onClick={addProductToCart}>
           Купити
         </Button>
       </CardActions>
     </Card>
   );
-}
+};

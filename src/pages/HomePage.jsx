@@ -26,7 +26,7 @@ export const HomePage = () => {
               }}
             />
           ) : (
-            data.map((obj) => <ProductCard key={nanoid()} {...obj} obj={obj} />)
+            data.map((obj) => <ProductCard key={nanoid()} {...obj} />)
           )}
         </Grid>
       </Container>
