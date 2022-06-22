@@ -6,6 +6,8 @@ import { cartSelector } from '../redux/slices/cartSlice';
 
 import { Box, Typography } from '@mui/material';
 
+import { BackToHome } from '../components/BackToHome';
+
 export const TotalCart = () => {
   const { totalCount, totalPrice } = useSelector(cartSelector);
   return (
@@ -25,6 +27,7 @@ export const TotalCart = () => {
           }}>
           Кількість: {totalCount}
         </Typography>
+
         <Typography
           variant='h5'
           sx={{
@@ -56,6 +59,7 @@ export const TotalCart = () => {
           Перейти до оплати
         </Typography>
       </Link>
+      <BackToHome sx={{ display: 'flex' }} />
     </>
   );
 };
