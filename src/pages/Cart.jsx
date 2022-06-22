@@ -10,7 +10,7 @@ import { clearCart, cartSelector } from '../redux/slices/cartSlice';
 
 import { Header } from '../components/Header';
 import { ClearCart } from '../components/ClearCart/ClearCart';
-import { ProductInCart } from '../components/CartItem/CartItem';
+import { CrtItem as CartItem } from '../components/CartItem/CartItem';
 import { CartIcon } from '../components/EmptyCart';
 import { TotalCart } from '../components/TotalCart';
 
@@ -48,7 +48,7 @@ export const Cart = () => {
             </Box>
           </Box>
           {cart.map((products) => (
-            <ProductInCart {...products} key={nanoid()} />
+            <CartItem {...products} key={nanoid()} />
           ))}
           <TotalCart />
         </Container>

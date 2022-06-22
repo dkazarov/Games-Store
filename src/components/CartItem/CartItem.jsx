@@ -3,7 +3,12 @@ import React from 'react';
 import { Box } from '@mui/material';
 
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { deleteFromCart, addToCart, decrementItem } from '../../redux/slices/cartSlice';
+import {
+  deleteFromCart,
+  addToCart,
+  decrementItem,
+  deleteProduct,
+} from '../../redux/slices/cartSlice';
 
 import { useDispatch } from 'react-redux/es/exports';
 
@@ -12,11 +17,11 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 import style from '../CartItem/CartItem.module.scss';
 
-export const ProductInCart = ({ id, image, title, price, count }) => {
+export const CrtItem = ({ id, image, title, price, count }) => {
   const dispatch = useDispatch();
 
   const deleteProductFromCart = () => {
-    dispatch(deleteFromCart(id));
+    dispatch(deleteProduct(id));
   };
 
   const incrementProduct = () => {
@@ -41,7 +46,7 @@ export const ProductInCart = ({ id, image, title, price, count }) => {
             </Box>
             <Box className={style.price}>{price * count} грн</Box>
             <HighlightOffIcon
-              color='error'
+              color='warning'
               sx={{ mr: 2, cursor: 'pointer' }}
               onClick={deleteProductFromCart}
             />
