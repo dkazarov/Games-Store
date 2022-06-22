@@ -11,6 +11,7 @@ export const gameSlice = createSlice({
     },
   },
 });
+export const gameSelector = (state) => state.game;
 
 // Action creators are generated for each case reducer function
 export const { setCurrentGame } = gameSlice.actions;

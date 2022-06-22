@@ -1,12 +1,13 @@
 import React from 'react';
-import { Box, Chip, Typography, Button, Alert, AlertTitle } from '@mui/material';
-import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 
-export const SelectedGame = () => {
-  const { game } = useSelector((state) => state.game);
+import { useSelector } from 'react-redux';
+import { gameSelector } from '../redux/slices/gameSlice';
 
-  console.log(game);
+import { Box, Chip, Typography, Button, Alert, AlertTitle } from '@mui/material';
+
+export const SelectedGame: React.FC = () => {
+  const { game } = useSelector(gameSelector);
 
   if (!game) {
     return (
@@ -41,7 +42,7 @@ export const SelectedGame = () => {
           }}>
           {game.title}
           <Box>
-            {game.genres.map((items) => (
+            {game.genres.map((items: string[]) => (
               <Chip
                 key={nanoid()}
                 label={items}
@@ -59,14 +60,12 @@ export const SelectedGame = () => {
           </Button>
         </Typography>
       </Box>
-      <div>
-        <iframe
-          width='100%'
-          height='500'
-          src={game.video}
-          title='YouTube video player'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'></iframe>
-      </div>
+      <iframe
+        width='100%'
+        height='500'
+        src={game.video}
+        title='YouTube video player'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'></iframe>
     </>
   );
 };
