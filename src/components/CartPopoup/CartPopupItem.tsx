@@ -19,16 +19,17 @@ interface Iproducts {
   price: number;
 }
 
-export const CartPopupItem: React.FC<Iproducts> = ({ count, title, image, price }) => {
+export const CartPopupItem: React.FC<Iproducts> = ({ id, count, title, image, price }) => {
   const dispatch = useDispatch();
 
-  const deleteProductFromCart = (id: number) => {
+  const deleteProductFromCart = () => {
     dispatch(decrementItemPopup(id));
   };
+
   return (
     <>
       <li key={nanoid()} className={style.list}>
-        {/* <HighlightOffIcon onClick:={deleteProductFromCart} sx={{ cursor: 'pointer', mr: 2 }} /> */}
+        <HighlightOffIcon onClick={deleteProductFromCart} sx={{ cursor: 'pointer', mr: 2 }} />
         <img src={image} alt='product img' className={style.image} />
         <Box className={style.info}>
           <Box className={style.title}>{title}</Box>
