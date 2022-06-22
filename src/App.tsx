@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { HomePage } from './pages/HomePage.jsx';
+import { HomePage } from './pages/HomePage';
 import { Cart } from './pages/Cart';
-import { NotFound } from './pages/NotFound.jsx';
+import { NotFound } from './pages/NotFound';
 import { GamePage } from './pages/GamePage';
 
 import { getAllData } from './redux/slices/dataSlice';

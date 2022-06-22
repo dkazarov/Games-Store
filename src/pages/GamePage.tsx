@@ -5,7 +5,7 @@ import { SelectedGame } from '../components/SelectedGame';
 
 import { Container } from '@mui/material';
 
-export const GamePage = () => {
+export const GamePage: React.FC = () => {
   return (
     <>
       <Header />
