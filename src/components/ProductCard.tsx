@@ -44,7 +44,7 @@ export const ProductCard: React.FC<IProductCard> = ({
   let navigate = useNavigate();
 
   const addProductToCart = () => {
-    dispatch(addToCart({ id, image, title, description, price, genres, count, video }));
+    dispatch(addToCart({ id, image, title, price, count }));
     dispatch(activeCartPreview(false));
 
     // Post to firebase

@@ -9,17 +9,11 @@ import { addToCart, decrementItem, deleteProduct } from '../../redux/slices/cart
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
+import { ICart } from '../../@types/types';
+
 import style from '../CartItem/CartItem.module.scss';
 
-interface ICartItemProps {
-  id: number;
-  image: string;
-  title: string;
-  price: number;
-  count: number;
-}
-
-export const CartItem: React.FC<ICartItemProps> = ({ id, image, title, price, count }) => {
+export const CartItem: React.FC<ICart> = ({ id, image, title, price, count }) => {
   const dispatch = useDispatch();
 
   const deleteProductFromCart = () => {
@@ -27,18 +21,7 @@ export const CartItem: React.FC<ICartItemProps> = ({ id, image, title, price, co
   };
 
   const incrementProduct = () => {
-    dispatch(
-      addToCart({
-        id,
-        image: '',
-        title: '',
-        description: '',
-        price: 0,
-        genres: [],
-        count: 0,
-        video: '',
-      }),
-    );
+    dispatch(addToCart({ id, image, title, price, count }));
   };
 
   const decrementProduct = () => {

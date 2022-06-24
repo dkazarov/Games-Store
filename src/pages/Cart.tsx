@@ -14,18 +14,9 @@ import { CartItem } from '../components/CartItem/CartItem';
 import { CartIcon } from '../components/EmptyCart';
 import { TotalCart } from '../components/TotalCart';
 
-import style from '../components/ClearCart/ClearCart.module.scss';
+import { ICart } from '../@types/types';
 
-interface ICart {
-  id: number;
-  image: string;
-  price: number;
-  title: string;
-  count: number;
-  video: string;
-  description: string;
-  genres: string[];
-}
+import style from '../components/ClearCart/ClearCart.module.scss';
 
 export const Cart: React.FC = () => {
   const dispatch = useDispatch();
