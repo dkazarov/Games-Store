@@ -27,7 +27,18 @@ export const CartItem: React.FC<ICartItemProps> = ({ id, image, title, price, co
   };
 
   const incrementProduct = () => {
-    dispatch(addToCart({ id }));
+    dispatch(
+      addToCart({
+        id,
+        image: '',
+        title: '',
+        description: '',
+        price: 0,
+        genres: [],
+        count: 0,
+        video: '',
+      }),
+    );
   };
 
   const decrementProduct = () => {

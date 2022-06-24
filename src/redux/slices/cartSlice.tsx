@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
 interface ICartItem {
@@ -30,7 +30,7 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart(state, action) {
+    addToCart(state, action: PayloadAction<ICartItem>) {
       const findProduct = state.cart.find((obj) => obj.id === action.payload.id);
 
       if (findProduct) {
@@ -41,7 +41,7 @@ export const cartSlice = createSlice({
       state.totalCount = state.cart.reduce((acc, obj) => obj.count + acc, 0);
       state.totalPrice = state.cart.reduce((sum, obj) => obj.price * obj.count + sum, 0);
     },
-    decrementItem(state, action) {
+    decrementItem(state, action: PayloadAction<number>) {
       const findProduct = state.cart.find((obj) => obj.id === action.payload);
 
       if (!findProduct) return;
@@ -53,7 +53,7 @@ export const cartSlice = createSlice({
       state.totalCount = state.cart.reduce((acc, obj) => obj.count + acc, 0);
       state.totalPrice = state.cart.reduce((sum, obj) => obj.price * obj.count + sum, 0);
     },
-    decrementItemPopup(state, action) {
+    decrementItemPopup(state, action: PayloadAction<number>) {
       const findProduct = state.cart.find((obj) => obj.id === action.payload);
 
       if (!findProduct) return;
@@ -71,7 +71,7 @@ export const cartSlice = createSlice({
       state.totalCount = state.cart.reduce((acc, obj) => obj.count + acc, 0);
       state.totalPrice = state.cart.reduce((sum, obj) => obj.price * obj.count + sum, 0);
     },
-    deleteProduct(state, action) {
+    deleteProduct(state, action: PayloadAction<number>) {
       state.cart = state.cart.filter((obj) => obj.id !== action.payload);
       state.totalCount = state.cart.reduce((acc, obj) => obj.count + acc, 0);
       state.totalPrice = state.cart.reduce((sum, obj) => obj.price * obj.count + sum, 0);
@@ -82,7 +82,7 @@ export const cartSlice = createSlice({
       state.totalCount = 0;
     },
     // Toggle open/close cart popup
-    activeCartPreview: (state, action) => {
+    activeCartPreview: (state, action: PayloadAction<boolean>) => {
       state.previewCart = action.payload;
     },
   },
