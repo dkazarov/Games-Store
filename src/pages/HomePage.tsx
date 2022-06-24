@@ -7,20 +7,10 @@ import { Grid, Container, CircularProgress } from '@mui/material';
 
 import { Header } from '../components/Header';
 import { ProductCard } from '../components/ProductCard';
+import { IProduct } from '../@types/types';
 
 export const HomePage: React.FC = () => {
   const { data, isLoading } = useSelector(dataSelector);
-
-  interface ICardProduct {
-    id: number;
-    image: string;
-    price: number;
-    title: string;
-    count: number;
-    video: string;
-    description: string;
-    genres: string[];
-  }
 
   return (
     <>
@@ -37,7 +27,7 @@ export const HomePage: React.FC = () => {
               }}
             />
           ) : (
-            data.map((card: ICardProduct) => <ProductCard key={nanoid()} {...card} />)
+            data.map((card: IProduct) => <ProductCard key={nanoid()} {...card} />)
           )}
         </Grid>
       </Container>
