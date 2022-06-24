@@ -42,7 +42,9 @@ export const cartSlice = createSlice({
       state.totalPrice = state.cart.reduce((sum, obj) => obj.price * obj.count + sum, 0);
     },
     decrementItem(state, action) {
-      const findProduct: any = state.cart.find((obj) => obj.id === action.payload);
+      const findProduct = state.cart.find((obj) => obj.id === action.payload);
+
+      if (!findProduct) return;
 
       if (findProduct.count > 1) {
         findProduct.count--;
@@ -52,7 +54,9 @@ export const cartSlice = createSlice({
       state.totalPrice = state.cart.reduce((sum, obj) => obj.price * obj.count + sum, 0);
     },
     decrementItemPopup(state, action) {
-      const findProduct: any = state.cart.find((obj) => obj.id === action.payload);
+      const findProduct = state.cart.find((obj) => obj.id === action.payload);
+
+      if (!findProduct) return;
 
       if (findProduct.count > 1) {
         findProduct.count--;
