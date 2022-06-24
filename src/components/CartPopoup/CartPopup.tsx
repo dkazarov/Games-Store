@@ -11,14 +11,8 @@ import { CartPopupItem } from './CartPopupItem';
 import style from './CartPreview.module.scss';
 
 import { Box } from '@mui/material';
+import { ICart } from '../../@types/types';
 
-interface Iproducts {
-  id: number;
-  count: number;
-  title: string;
-  image: string;
-  price: number;
-}
 export const CartPreview: React.FC = () => {
   const dispatch = useDispatch();
   const location = useLocation();
@@ -54,7 +48,7 @@ export const CartPreview: React.FC = () => {
       {previewCart && (
         <div ref={cartPreview} className={style.root}>
           <ul className={style.ul}>
-            {cart.map((products: Iproducts) => (
+            {cart.map((products: ICart) => (
               <CartPopupItem {...products} key={nanoid()} />
             ))}
           </ul>

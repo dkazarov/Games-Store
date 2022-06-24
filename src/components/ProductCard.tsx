@@ -16,21 +16,11 @@ import { setCurrentGame } from '../redux/slices/gameSlice';
 
 import { useDispatch } from 'react-redux';
 import { activeCartPreview } from '../redux/slices/cartSlice';
+import { ICart, IProduct } from '../@types/types';
 
 // import { getDatabase, ref, push, set } from 'firebase/database';
 
-interface IProductCard {
-  id: number;
-  image: string;
-  title: string;
-  description: string;
-  price: number;
-  genres: string[];
-  count: number;
-  video: string;
-}
-
-export const ProductCard: React.FC<IProductCard> = ({
+export const ProductCard: React.FC<IProduct> = ({
   id,
   image,
   title,

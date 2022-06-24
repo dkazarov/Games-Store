@@ -4,28 +4,10 @@ import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
 import { gameSelector } from '../redux/slices/gameSlice';
 
-import { Box, Chip, Typography, Button, Alert, AlertTitle } from '@mui/material';
+import { Box, Chip, Typography, Button } from '@mui/material';
 
 export const SelectedGame: React.FC = () => {
   const { game } = useSelector(gameSelector);
-
-  if (!game) {
-    return (
-      <Alert
-        severity='error'
-        sx={{
-          position: 'absolute',
-          bottom: 0,
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '90%',
-          fontSize: 20,
-        }}>
-        <AlertTitle>Error</AlertTitle>
-        Упс... Щось пішло не так...
-      </Alert>
-    );
-  }
 
   return (
     <>

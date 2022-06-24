@@ -16,3 +16,7 @@ export interface ICart {
   price: number;
   count: number;
 }
+
+export interface ICurentGame {
+  
+}

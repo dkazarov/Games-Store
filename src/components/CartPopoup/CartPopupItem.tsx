@@ -9,17 +9,10 @@ import { decrementItemPopup } from '../../redux/slices/cartSlice';
 import { Box, Button } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
+import { ICart } from '../../@types/types';
 import style from './CartPreview.module.scss';
 
-interface Iproducts {
-  id: number;
-  count: number;
-  title: string;
-  image: string;
-  price: number;
-}
-
-export const CartPopupItem: React.FC<Iproducts> = ({ id, count, title, image, price }) => {
+export const CartPopupItem: React.FC<ICart> = ({ id, count, title, image, price }) => {
   const dispatch = useDispatch();
 
   const deleteProductFromCart = () => {
