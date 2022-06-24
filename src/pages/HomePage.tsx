@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 
-import { dataSelector } from '../redux/slices/dataSlice.js';
+import { dataSelector } from '../redux/slices/dataSlice';
 import { useSelector } from 'react-redux';
 
 import { Grid, Container, CircularProgress } from '@mui/material';

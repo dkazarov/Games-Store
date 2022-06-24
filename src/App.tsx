@@ -6,13 +6,13 @@ import { Cart } from './pages/Cart';
 import { NotFound } from './pages/NotFound';
 import { GamePage } from './pages/GamePage';
 
+import { useAppDispatch } from './redux/store';
 import { getAllData } from './redux/slices/dataSlice';
-import { useDispatch } from 'react-redux';
 
 import './firebase.config';
 
 const App: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   // Get all data from beckend
   dispatch(getAllData());
 
