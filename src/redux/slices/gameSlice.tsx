@@ -13,6 +13,7 @@ const initialState: gameSliceState = {
     genres: [],
     image: '',
     title: '',
+    price: 0,
   },
 };
 

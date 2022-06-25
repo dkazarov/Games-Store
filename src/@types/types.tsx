@@ -23,4 +23,5 @@ export interface ISelectedItem {
   genres: string[];
   image: string;
   title: string;
+  price: number;
 }
