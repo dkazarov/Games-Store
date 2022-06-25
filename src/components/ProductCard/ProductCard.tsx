@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { nanoid } from 'nanoid';
-import { addToCart } from '../redux/slices/cartSlice';
+import { addToCart } from '../../redux/slices/cartSlice';
 import {
   Card,
   CardActions,
@@ -12,11 +12,13 @@ import {
   Chip,
   Box,
 } from '@mui/material';
-import { setCurrentGame } from '../redux/slices/gameSlice';
+import { setCurrentGame } from '../../redux/slices/gameSlice';
 
 import { useDispatch } from 'react-redux';
-import { activeCartPreview } from '../redux/slices/cartSlice';
-import { ICart, IProduct } from '../@types/types';
+import { activeCartPreview } from '../../redux/slices/cartSlice';
+import { IProduct } from '../../@types/types';
+
+import style from './ProductCard.module.scss';
 
 // import { getDatabase, ref, push, set } from 'firebase/database';
 
@@ -50,7 +52,7 @@ export const ProductCard: React.FC<IProduct> = ({
   };
 
   return (
-    <Card sx={{ maxWidth: 300, m: 2, height: '500px' }}>
+    <Card className={style.root} sx={{}}>
       <Box onClick={openGameCard}>
         <CardMedia
           component='img'
@@ -59,34 +61,38 @@ export const ProductCard: React.FC<IProduct> = ({
           image={image}
           sx={{ cursor: 'pointer' }}
         />
-        <CardContent sx={{ maxHeight: '165px', overflow: 'hidden' }}>
+        <CardContent className={style.content}>
+          <Typography className={style.title} gutterBottom variant='h5' component='div'>
+            {title}
+          </Typography>
           <Typography
             gutterBottom
             component='div'
-            sx={{ fontSize: 14, color: 'crimson', textAlign: 'center' }}>
+            sx={{ fontSize: 14, color: 'crimson', textAlign: 'center', m: 1.5 }}>
             {genres.map((items) => (
               <Chip
                 key={nanoid()}
                 label={items}
                 color='warning'
                 size='small'
-                sx={{ m: 0.5, cursor: 'pointer' }}
+                sx={{ m: 0.2, cursor: 'pointer' }}
               />
             ))}
-          </Typography>
-          <Typography gutterBottom variant='h5' component='div'>
-            {title}
           </Typography>
           <Typography variant='body2' color='text.secondary'>
             {description}
           </Typography>
         </CardContent>
       </Box>
-      <CardActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Button size='small' variant='outlined'>
+      <CardActions sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+        <Button className={style.outline} size='small' variant='outlined'>
           Ціна: {price} грн
         </Button>
-        <Button size='small' variant='contained' onClick={addProductToCart}>
+        <Button
+          className={style.filled}
+          size='small'
+          variant='contained'
+          onClick={addProductToCart}>
           Купити
         </Button>
       </CardActions>

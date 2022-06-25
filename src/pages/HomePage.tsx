@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { Grid, Container, CircularProgress } from '@mui/material';
 
 import { Header } from '../components/Header';
-import { ProductCard } from '../components/ProductCard';
+import { ProductCard } from '../components/ProductCard/ProductCard';
 import { IProduct } from '../@types/types';
 
 export const HomePage: React.FC = () => {

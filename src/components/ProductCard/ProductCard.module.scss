@@ -1,0 +1,38 @@
+.root {
+  max-width: 300px;
+  margin: 2px;
+  height: 500px;
+  border-radius: 15px;
+  margin: 2%;
+  @media (max-width: 700px) {
+    max-width: 100%;
+  }
+}
+
+.title {
+  text-align: center;
+}
+
+.content {
+  max-height: 165px;
+  overflow: hidden;
+  @media (max-width: 700px) {
+    text-align: center;
+    max-height: 160px;
+    overflow: auto;
+  }
+}
+
+.outline {
+  @media (max-width: 700px) {
+    border: dashed 1px crimson !important;
+    color: black !important;
+  }
+}
+
+.filled {
+  @media (max-width: 700px) {
+    width: 50%;
+    padding: 1%;
+  }
+}
