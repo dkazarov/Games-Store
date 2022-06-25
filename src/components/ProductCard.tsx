@@ -45,8 +45,6 @@ export const ProductCard: React.FC<IProduct> = ({
   };
 
   const openGameCard = () => {
-    console.log(id);
-
     dispatch(setCurrentGame({ id, image, title, description, price, genres, count, video }));
     navigate(`/game/${id}/${title}`);
   };

@@ -40,7 +40,6 @@ export const SelectedGame: React.FC = () => {
           <Button variant='contained' sx={{ width: '70%', m: '0 auto' }}>
             Купити: {game.price} грн
           </Button>
-          <Typography></Typography>
         </Typography>
       </Box>
       <iframe
