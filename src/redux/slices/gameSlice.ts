@@ -1,19 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ISelectedItem } from '../../@types/types';
+import { IProduct } from '../../@types/types';
 import { RootState } from '../store';
 
 type gameSliceState = {
-  game: ISelectedItem;
+  game: IProduct;
 };
 
 const initialState: gameSliceState = {
   game: {
+    id: 1,
     video: '',
     description: 'title',
     genres: [],
     image: '',
     title: '',
     price: 0,
+    count: 0,
   },
 };
 

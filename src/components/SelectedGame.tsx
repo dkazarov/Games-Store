@@ -1,13 +1,27 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { gameSelector } from '../redux/slices/gameSlice';
 
 import { Box, Chip, Typography, Button } from '@mui/material';
+import { ICart } from '../@types/types';
+import { addToCart } from '../redux/slices/cartSlice';
 
 export const SelectedGame: React.FC = () => {
+  const dispatch = useDispatch();
   const { game } = useSelector(gameSelector);
+
+  const addProductToCart = (
+    id: number,
+    image: string,
+    title: string,
+    price: number,
+    count: number,
+  ) => {
+    dispatch(addToCart({ id, image, title, price, count }));
+    console.log(id, image, title, price, count);
+  };
 
   return (
     <>
@@ -37,7 +51,12 @@ export const SelectedGame: React.FC = () => {
           <Typography variant='body1' color='white' sx={{ fontSize: 21, pt: 5, mb: 5 }}>
             {game.description}
           </Typography>
-          <Button variant='contained' sx={{ width: '70%', m: '0 auto' }}>
+          <Button
+            onClick={() =>
+              addProductToCart(game.id, game.image, game.title, game.price, game.count)
+            }
+            variant='contained'
+            sx={{ width: '70%', m: '0 auto' }}>
             Купити: {game.price} грн
           </Button>
         </Typography>

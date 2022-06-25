@@ -18,6 +18,7 @@ export interface ICart {
 }
 
 export interface ISelectedItem {
+  id: number;
   video: string;
   description: string;
   genres: string[];
