@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Header } from '../components/Header';
-import { SelectedGame } from '../components/SelectedGame';
+import { SelectedGame } from '../components/SelectedGame/SelectedGame';
 
 import { Container } from '@mui/material';
 
