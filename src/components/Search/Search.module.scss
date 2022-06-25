@@ -1,0 +1,41 @@
+.root {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  text-align: center;
+  font-size: 16px;
+  padding: 4px 20px 4px 30px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+  color: rgba(255, 255, 255, 1);
+
+  &:focus {
+    transition: all 0.3s;
+    outline: none;
+    border: 0.1px solid #ed6c0250;
+    width: 200px;
+  }
+
+  @media (max-width: 768px) {
+    width: 200px;
+  }
+
+  @media (max-width: 576px) {
+    max-width: 100px;
+  }
+}
+
+.search__icon {
+  color: aliceblue;
+  position: absolute;
+  opacity: 0.5;
+  left: 5px;
+  top: 10px;
+}

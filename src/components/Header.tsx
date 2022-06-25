@@ -6,6 +6,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import { styled } from '@mui/material/styles';
 import { CartPreview } from './CartPopoup/CartPopup';
+import { Search } from './Search/Search';
 
 import { activeCartPreview, cartSelector } from '../redux/slices/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
@@ -49,6 +50,7 @@ export const Header: React.FC = () => {
               Games Store
             </Link>
           </Typography>
+          <Search />
           <Link
             to='/cart'
             style={{ textDecoration: 'none', fontSize: '16px', color: 'white', fontWeight: 700 }}>
