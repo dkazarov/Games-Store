@@ -1,0 +1,60 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 10%;
+  font-size: 28px;
+  color: aliceblue;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.count {
+  background-color: #222;
+  border-radius: 7px;
+  text-align: center;
+  font-weight: 300;
+  max-width: 300px;
+  padding: 15px;
+
+  @media (max-width: 576px) {
+    font-size: 18px;
+    padding: 7px;
+    max-width: 300px;
+    border-radius: 3px;
+  }
+}
+
+.price {
+  background-color: #ef7c3d;
+  border-radius: 7px;
+  text-align: center;
+  padding: 15px;
+
+  @media (max-width: 576px) {
+    font-weight: 400;
+    font-size: 18px;
+    padding: 7px;
+    max-width: 300px;
+    border-radius: 3px;
+  }
+}
+
+.pay_btn {
+  font-size: 24;
+  padding: 10px;
+  background-color: #222;
+  border-radius: 7px;
+  max-width: 300px;
+  text-align: center;
+  margin: 0 auto 50px;
+  cursor: pointer;
+
+  @media (max-width: 576px) {
+    font-weight: 400;
+    font-size: 24px;
+  }
+}

@@ -6,7 +6,7 @@ import style from './ClearCart.module.scss';
 export const ClearCart: React.FC = () => {
   return (
     <>
-      <ClearAllIcon className={style.title} sx={{ mr: 1 }} />
+      <ClearAllIcon className={style.title} />
       <Box>Видалити все</Box>
     </>
   );

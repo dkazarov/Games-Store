@@ -12,7 +12,7 @@ import { Header } from '../components/Header';
 import { ClearCart } from '../components/ClearCart/ClearCart';
 import { CartItem } from '../components/CartItem/CartItem';
 import { CartIcon } from '../components/EmptyCart';
-import { TotalCart } from '../components/TotalCart';
+import { TotalCart } from '../components/TotalCart/TotalCart';
 
 import { ICart } from '../@types/types';
 
@@ -41,18 +41,10 @@ export const Cart: React.FC = () => {
               mb: 5,
               maxHeight: 50,
             }}>
-            <Typography
-              className={style.title}
-              variant='h4'
-              sx={{ display: 'flex', alignItems: 'center' }}>
+            <h4 className={style.title}>
               Кошик
-              <ShoppingCartIcon
-                className={style.cart_icon}
-                color='warning'
-                fontSize='large'
-                sx={{ m: 2 }}
-              />
-            </Typography>
+              <ShoppingCartIcon className={style.cart_icon} color='warning' />
+            </h4>
             <Box className={style.root} onClick={clearAllProductInCart}>
               <ClearCart />
             </Box>
