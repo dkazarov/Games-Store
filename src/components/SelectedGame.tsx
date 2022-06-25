@@ -12,15 +12,8 @@ export const SelectedGame: React.FC = () => {
   const dispatch = useDispatch();
   const { game } = useSelector(gameSelector);
 
-  const addProductToCart = (
-    id: number,
-    image: string,
-    title: string,
-    price: number,
-    count: number,
-  ) => {
-    dispatch(addToCart({ id, image, title, price, count }));
-    console.log(id, image, title, price, count);
+  const addProductToCart = (game: ICart) => {
+    dispatch(addToCart({ ...game }));
   };
 
   return (
@@ -52,9 +45,7 @@ export const SelectedGame: React.FC = () => {
             {game.description}
           </Typography>
           <Button
-            onClick={() =>
-              addProductToCart(game.id, game.image, game.title, game.price, game.count)
-            }
+            onClick={() => addProductToCart(game)}
             variant='contained'
             sx={{ width: '70%', m: '0 auto' }}>
             Купити: {game.price} грн
