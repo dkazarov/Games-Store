@@ -24,7 +24,7 @@ export const SelectedGame: React.FC = () => {
           }}>
           {game.title}
           <Box>
-            {game.genres.map((items: string[]) => (
+            {game.genres.map((items) => (
               <Chip
                 key={nanoid()}
                 label={items}

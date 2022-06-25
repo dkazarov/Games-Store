@@ -17,6 +17,10 @@ export interface ICart {
   count: number;
 }
 
-export interface ICurentGame {
-  
+export interface ISelectedItem {
+  video: string;
+  description: string;
+  genres: string[];
+  image: string;
+  title: string;
 }

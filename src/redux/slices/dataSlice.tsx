@@ -14,13 +14,13 @@ interface IDataItem {
   video: string;
 }
 
-interface MyData {
+interface IDataSliceState {
   data: IDataItem[];
   isLoading: boolean;
   error: boolean;
 }
 
-const initialState: MyData = {
+const initialState: IDataSliceState = {
   data: [],
   isLoading: true,
   error: false,
