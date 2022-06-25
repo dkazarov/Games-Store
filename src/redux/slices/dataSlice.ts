@@ -1,21 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { getDatabase, ref, child, get } from 'firebase/database';
+import { IProduct } from '../../@types/types';
 import { RootState } from '../store';
 
-interface IDataItem {
-  id: number;
-  image: string;
-  title: string;
-  description: string;
-  price: number;
-  genres: string[];
-  count: number;
-  video: string;
-}
-
 interface IDataSliceState {
-  data: IDataItem[];
+  data: IProduct[];
   isLoading: boolean;
   error: boolean;
 }
@@ -26,7 +16,7 @@ const initialState: IDataSliceState = {
   error: false,
 };
 
-export const getAllData = createAsyncThunk('data', async () => {
+export const getAllData = createAsyncThunk<IProduct[]>('data', async () => {
   const dbRef = ref(getDatabase());
   const snapshot = await get(child(dbRef, `games/`));
   if (snapshot.exists()) {
@@ -35,7 +25,7 @@ export const getAllData = createAsyncThunk('data', async () => {
     alert('This is an error alert — check it out!');
     console.log('This is an error alert — check it out!');
   }
-  return snapshot.val() as IDataItem[];
+  return await snapshot.val();
 });
 
 export const dataSlice = createSlice({
