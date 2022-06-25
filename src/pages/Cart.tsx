@@ -41,9 +41,17 @@ export const Cart: React.FC = () => {
               mb: 5,
               maxHeight: 50,
             }}>
-            <Typography variant='h4' sx={{ display: 'flex', alignItems: 'center' }}>
+            <Typography
+              className={style.title}
+              variant='h4'
+              sx={{ display: 'flex', alignItems: 'center' }}>
               Кошик
-              <ShoppingCartIcon color='warning' fontSize='large' sx={{ m: 2 }} />
+              <ShoppingCartIcon
+                className={style.cart_icon}
+                color='warning'
+                fontSize='large'
+                sx={{ m: 2 }}
+              />
             </Typography>
             <Box className={style.root} onClick={clearAllProductInCart}>
               <ClearCart />

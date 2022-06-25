@@ -1,40 +1,133 @@
 .root {
+  margin-bottom: '3%';
+  padding: 0;
+}
+
+.li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-height: 80px;
+  height: 75px;
   color: #000;
-  margin-bottom: 30px;
-  font-size: 26px;
-  padding: 10px;
-  background-color: #fff;
+  background-color: aliceblue;
   border-radius: 12px;
-  box-shadow: 10px 10px 10px 1px #000;
-  text-align: center;
-  cursor: pointer;
+  padding: 10px;
+  box-shadow: 5px 5px 5px 1px #000;
+
+  @media (max-width: 700px) {
+    padding: 5px;
+    border-radius: 6px;
+  }
+}
+
+.cover {
+  @media (max-width: 700px) {
+    height: 75px;
+  }
 }
 
 .title {
   font-size: 36px;
   font-weight: 300;
-  margin-right: 15px;
+  overflow: hidden;
+
+  @media (max-width: 700px) {
+    font-weight: 400;
+    font-size: 30px;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  @media (max-width: 576px) {
+    padding: 5px;
+    font-weight: 400;
+    font-size: 20px;
+    max-width: 100%;
+    text-align: center;
+  }
 }
 
 .price__wrapper {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  max-width: 400px;
+  height: 75px;
+  width: 280px;
+
+  @media (max-width: 700px) {
+    display: flex;
+    justify-content: justify-content;
+    max-width: 200px;
+  }
+
+  @media (max-width: 576px) {
+    display: flex;
+    justify-content: justify-content;
+    max-width: 120px;
+    margin-right: 10px;
+  }
+}
+
+.decrement {
+  margin-right: 10%;
+
+  @media (max-width: 700px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 576px) {
+    display: block;
+    font-size: 12px;
+  }
+}
+
+.increment {
+  margin-left: 10%;
+  margin-right: 30%;
+
+  @media (max-width: 700px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 12px;
+    margin-right: 0;
+  }
 }
 
 .count {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin-right: 30px;
   font-size: 20px;
+
+  @media (max-width: 576px) {
+    display: none;
+  }
 }
 
 .price {
   font-size: 30px;
-  margin-right: 20px;
   color: crimson;
+  width: 150px;
+  text-align: center;
+
+  @media (max-width: 700px) {
+    font-size: 25px;
+  }
+
+  @media (max-width: 576px) {
+    margin: 0;
+    font-size: 20px;
+  }
+}
+
+.remove {
+  cursor: pointer;
+  margin-right: 5%;
+  margin: 0 auto;
+
+  @media (max-width: 576px) {
+    margin: 0;
+  }
 }

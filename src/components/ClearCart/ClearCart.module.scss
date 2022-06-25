@@ -10,3 +10,13 @@
     color: #ffe7d4;
   }
 }
+
+.title {
+  @media (max-width: 576px) {
+    font-size: 26px;
+  }
+}
+
+.cart_icon {
+  font-size: 26px;
+}

@@ -29,23 +29,23 @@ export const CartItem: React.FC<ICart> = ({ id, image, title, price, count }) =>
   };
 
   return (
-    <ul style={{ marginBottom: '3%' }}>
-      <li className={style.root}>
-        <img src={image} width='70' alt='product' />
-        <Box className={style.title}>{title}</Box>
-        <Box className={style.price__wrapper}>
-          <Box className={style.count}>
-            <RemoveCircleOutlineIcon sx={{ mr: 1 }} onClick={decrementProduct} />
+    <ul className={style.root}>
+      <li className={style.li}>
+        <img className={style.cover} src={image} width='70' alt='product' />
+        <div className={style.title}>{title}</div>
+        <div className={style.price__wrapper}>
+          <div className={style.count}>
+            <RemoveCircleOutlineIcon className={style.decrement} onClick={decrementProduct} />
             {count}
-            <AddCircleOutlineIcon sx={{ ml: 1 }} onClick={incrementProduct} />
-          </Box>
-          <Box className={style.price}>{price * count} грн</Box>
+            <AddCircleOutlineIcon className={style.increment} onClick={incrementProduct} />
+          </div>
+          <div className={style.price}>{price * count} грн</div>
           <HighlightOffIcon
+            className={style.remove}
             color='warning'
-            sx={{ mr: 2, cursor: 'pointer' }}
             onClick={deleteProductFromCart}
           />
-        </Box>
+        </div>
       </li>
     </ul>
   );
