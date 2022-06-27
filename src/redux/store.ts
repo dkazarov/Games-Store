@@ -4,12 +4,14 @@ import dataReducer from './slices/dataSlice';
 import cartReducer from './slices/cartSlice';
 import gameReducer from './slices/gameSlice';
 import { useDispatch } from 'react-redux';
+import searchSlice from './slices/filterSlice';
 
 export const store = configureStore({
   reducer: {
     data: dataReducer,
     cart: cartReducer,
     game: gameReducer,
+    search: searchSlice,
   },
 });
 
