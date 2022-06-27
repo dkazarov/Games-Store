@@ -8,7 +8,7 @@ import { Container, Box } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart, cartSelector } from '../redux/slices/cartSlice';
 
-import { Header } from '../components/Header';
+import { Header } from '../components/Header/Header';
 import { ClearCart } from '../components/ClearCart/ClearCart';
 import { CartItem } from '../components/CartItem/CartItem';
 import { CartIcon } from '../components/EmptyCart/EmptyCart';

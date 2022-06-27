@@ -1,11 +1,12 @@
 .root {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  display: none;
   @media (max-width: 576px) {
-    display: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-bottom: 3%;
   }
 }
 
@@ -15,7 +16,7 @@
   padding: 4px 20px 4px 30px;
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  width: 350px;
+  width: 80%;
   background-color: rgba(255, 255, 255, 0.1);
   transition: all 0.3s;
   color: rgba(255, 255, 255, 1);
@@ -24,15 +25,7 @@
     transition: all 0.3s;
     outline: none;
     border: 0.1px solid #ed6c0250;
-    width: 400px;
-  }
-
-  @media (max-width: 768px) {
-    width: 200px;
-  }
-
-  @media (max-width: 576px) {
-    max-width: 100px;
+    width: 82%;
   }
 }
 
@@ -40,15 +33,15 @@
   color: aliceblue;
   position: absolute;
   opacity: 0.5;
-  left: 5px;
-  top: 10px;
+  left: 6%;
+  top: 7%;
 }
 
 .clear__icon {
   color: aliceblue;
   position: absolute;
   opacity: 0.5;
-  right: 5px;
-  top: 10px;
+  right: 6%;
+  top: 7%;
   cursor: pointer;
 }

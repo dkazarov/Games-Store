@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import { Grid, Container, LinearProgress } from '@mui/material';
 
-import { Header } from '../components/Header';
+import { Header } from '../components/Header/Header';
 import { ProductCard } from '../components/ProductCard/ProductCard';
 import { IProduct } from '../@types/types';
 import { searchSelector } from '../redux/slices/filterSlice';

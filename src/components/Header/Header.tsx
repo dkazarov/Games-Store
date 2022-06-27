@@ -5,11 +5,14 @@ import { Typography, Badge, IconButton, Container, Box } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import { styled } from '@mui/material/styles';
-import { CartPreview } from './CartPopoup/CartPopup';
-import { Search } from './Search/Search';
+import { CartPreview } from '../CartPopoup/CartPopup';
+import { Search } from '../Search/Search';
 
-import { activeCartPreview, cartSelector } from '../redux/slices/cartSlice';
+import { activeCartPreview, cartSelector } from '../../redux/slices/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
+
+import styles from './Header.module.scss';
+import { SearchMobile } from '../Search-mobile/SearchMobile';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -33,26 +36,14 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <Box>
-      <Box
-        style={{
-          position: 'relative',
-          display: 'flex',
-          alignItems: 'center',
-          height: '75px',
-          width: '100%',
-          backgroundColor: 'rgba(0, 0, 0, .5)',
-        }}>
-        <Container maxWidth='xl' sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant='h5' gutterBottom component='div' color='white'>
-            <Link to='/' style={{ color: 'white', textDecoration: 'none' }}>
-              Games Store
-            </Link>
-          </Typography>
+    <div>
+      <div className={styles.root}>
+        <Container maxWidth='xl' className={styles.container}>
+          <Link className={styles.title} to='/'>
+            Games Store
+          </Link>
           <Search />
-          <Link
-            to='/cart'
-            style={{ textDecoration: 'none', fontSize: '16px', color: 'white', fontWeight: 700 }}>
+          <Link to='/cart' className={styles.cart}>
             <IconButton aria-label='cart' color='warning' onMouseEnter={activePreviewMenu}>
               <StyledBadge badgeContent={totalCount} color='secondary' sx={{ mr: 1.5 }}>
                 <ShoppingCartIcon />
@@ -62,7 +53,10 @@ export const Header: React.FC = () => {
           </Link>
         </Container>
         <CartPreview />
-      </Box>
-    </Box>
+      </div>
+      <div className={styles.search__mobile}>
+        <SearchMobile />
+      </div>
+    </div>
   );
 };

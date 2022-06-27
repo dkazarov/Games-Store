@@ -5,10 +5,10 @@ import { setSearchValue } from '../../redux/slices/filterSlice';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 
-import styles from './Search.module.scss';
 import { useDispatch } from 'react-redux';
+import styles from './SearchMobile.module.scss';
 
-export const Search = () => {
+export const SearchMobile = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState('');
 
