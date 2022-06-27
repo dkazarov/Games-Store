@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { dataSelector } from '../redux/slices/dataSlice';
 import { useSelector } from 'react-redux';
 
-import { Grid, Container, CircularProgress } from '@mui/material';
+import { Grid, Container, LinearProgress } from '@mui/material';
 
 import { Header } from '../components/Header';
 import { ProductCard } from '../components/ProductCard/ProductCard';
@@ -15,22 +15,17 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <Header />
-      <Container maxWidth='xl'>
-        <Grid container direction='row' justifyContent='center' alignItems='center'>
-          {isLoading ? (
-            <CircularProgress
-              sx={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-              }}
-            />
-          ) : (
-            data.map((card: IProduct) => <ProductCard key={nanoid()} {...card} />)
-          )}
-        </Grid>
-      </Container>
+      {isLoading ? (
+        <LinearProgress />
+      ) : (
+        <Container maxWidth='xl' sx={{ pt: 5 }}>
+          <Grid container direction='row' justifyContent='center' alignItems='center'>
+            {data.map((card: IProduct) => (
+              <ProductCard key={nanoid()} {...card} />
+            ))}
+          </Grid>
+        </Container>
+      )}
     </>
   );
 };

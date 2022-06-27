@@ -42,7 +42,6 @@ export const Header: React.FC = () => {
           height: '75px',
           width: '100%',
           backgroundColor: 'rgba(0, 0, 0, .5)',
-          marginBottom: '40px',
         }}>
         <Container maxWidth='xl' sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Typography variant='h5' gutterBottom component='div' color='white'>
@@ -62,8 +61,8 @@ export const Header: React.FC = () => {
             {totalPrice} грн
           </Link>
         </Container>
+        <CartPreview />
       </Box>
-      <CartPreview />
     </Box>
   );
 };
