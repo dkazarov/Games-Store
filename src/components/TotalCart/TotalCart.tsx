@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { cartSelector } from '../../redux/slices/cartSlice';
 
-import { Box, Typography } from '@mui/material';
-
-import { BackToHome } from '../BackToHome';
+import { BackToHome } from '../BackToHome/BackToHome';
 
 import style from './TotalCart.module.scss';
 

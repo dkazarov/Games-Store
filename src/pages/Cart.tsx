@@ -3,7 +3,7 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Container, Box, Typography } from '@mui/material';
+import { Container, Box } from '@mui/material';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart, cartSelector } from '../redux/slices/cartSlice';
@@ -11,7 +11,7 @@ import { clearCart, cartSelector } from '../redux/slices/cartSlice';
 import { Header } from '../components/Header';
 import { ClearCart } from '../components/ClearCart/ClearCart';
 import { CartItem } from '../components/CartItem/CartItem';
-import { CartIcon } from '../components/EmptyCart';
+import { CartIcon } from '../components/EmptyCart/EmptyCart';
 import { TotalCart } from '../components/TotalCart/TotalCart';
 
 import { ICart } from '../@types/types';
