@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/games-store/static/css/main.47f2a77c.css",
-    "main.js": "/games-store/static/js/main.281b51cb.js",
+    "main.css": "/games-store/static/css/main.831ad72e.css",
+    "main.js": "/games-store/static/js/main.21248dcc.js",
     "static/js/787.28cb0dcd.chunk.js": "/games-store/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/games-store/index.html",
-    "main.47f2a77c.css.map": "/games-store/static/css/main.47f2a77c.css.map",
-    "main.281b51cb.js.map": "/games-store/static/js/main.281b51cb.js.map",
+    "main.831ad72e.css.map": "/games-store/static/css/main.831ad72e.css.map",
+    "main.21248dcc.js.map": "/games-store/static/js/main.21248dcc.js.map",
     "787.28cb0dcd.chunk.js.map": "/games-store/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.47f2a77c.css",
-    "static/js/main.281b51cb.js"
+    "static/css/main.831ad72e.css",
+    "static/js/main.21248dcc.js"
   ]
 }
