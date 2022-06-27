@@ -6,6 +6,10 @@
   text-align: center;
   background-color: #111;
 
+  @media (orientation: portrait) and (max-width: 576px) {
+    font-weight: 300;
+  }
+
   @media (orientation: landscape) and (min-width: 576px) {
     font-size: 16px;
     font-weight: 300;

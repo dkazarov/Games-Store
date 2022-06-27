@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IProduct } from '../../@types/types';
 import { RootState } from '../store';
 
@@ -23,7 +23,7 @@ export const gameSlice = createSlice({
   name: 'currentGame',
   initialState,
   reducers: {
-    setCurrentGame: (state, action) => {
+    setCurrentGame: (state, action: PayloadAction<IProduct>) => {
       state.game = action.payload;
     },
   },
