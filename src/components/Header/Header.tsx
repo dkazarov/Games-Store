@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Typography, Badge, IconButton, Container, Box } from '@mui/material';
+import { Badge, IconButton, Container } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import { styled } from '@mui/material/styles';
@@ -23,7 +23,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-export const Header: React.FC = () => {
+export const Header: React.FC = memo(() => {
   const dispatch = useDispatch();
   const { cart, previewCart, totalPrice, totalCount } = useSelector(cartSelector);
 
@@ -59,4 +59,4 @@ export const Header: React.FC = () => {
       </div>
     </div>
   );
-};
+});

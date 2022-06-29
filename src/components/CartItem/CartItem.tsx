@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Box } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 import { useDispatch } from 'react-redux/es/exports';
