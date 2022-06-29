@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { memo, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import { nanoid } from 'nanoid';
@@ -13,7 +13,7 @@ import style from './CartPreview.module.scss';
 import { Box } from '@mui/material';
 import { ICart } from '../../@types/types';
 
-export const CartPreview: React.FC = () => {
+export const CartPreview: React.FC = memo(() => {
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -69,4 +69,4 @@ export const CartPreview: React.FC = () => {
       )}
     </>
   );
-};
+});
